@@ -50,7 +50,22 @@
   </template>
 
   </dom-module>
+<dom-module id="paper-scroll-header-panel" assetpath="../../bower_components/paper-scroll-header-panel/">
 
+  <style>:host{display:block;position:relative;overflow:hidden;}#mainContainer{position:absolute;top:0;right:0;bottom:0;left:0;-moz-box-sizing:border-box;box-sizing:border-box;-webkit-overflow-scrolling:touch;overflow-x:hidden;overflow-y:auto;@apply(--paper-scroll-header-container);}#headerContainer{position:absolute;top:0;right:0;left:0;}.bg-container{position:absolute;top:0;left:0;width:100%;height:100%;overflow:hidden;}#headerBg{@apply(--paper-scroll-header-panel-full-header);}#condensedHeaderBg{@apply(--paper-scroll-header-panel-condensed-header);}#headerBg,#condensedHeaderBg{position:absolute;top:0;left:0;width:100%;height:100%;background-repeat:no-repeat;background-size:cover;background-position:center center;}#condensedHeaderBg{opacity:0;}</style>
+  <template>
+    <div id="mainContainer">
+      <content id="mainContent" select=":not(paper-toolbar):not(.paper-header)"></content>
+    </div>
+    <div id="headerContainer">
+      <div class="bg-container">
+        <div id="condensedHeaderBg"></div>
+        <div id="headerBg"></div>
+      </div>
+      <content id="headerContent" select="paper-toolbar, .paper-header"></content>
+    </div>
+  </template>
+</dom-module>
 
 <dom-module id="iron-icon" assetpath="../../bower_components/iron-icon/">
 
@@ -363,6 +378,8 @@
 <g id="zoom-out"><path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14zM7 9h5v1H7z"></path></g>
 </defs></svg>
 </iron-iconset-svg>
+
+
 <dom-module id="iron-pages" assetpath="../../bower_components/iron-pages/">
 
   <style>:host{display:block;}:host > ::content > :not(.iron-selected){display:none !important;}</style>
@@ -562,23 +579,6 @@
     </iron-dropdown>
   </template>
 </dom-module>
-<dom-module id="paper-scroll-header-panel" assetpath="../../bower_components/paper-scroll-header-panel/">
-
-  <style>:host{display:block;position:relative;overflow:hidden;}#mainContainer{position:absolute;top:0;right:0;bottom:0;left:0;-moz-box-sizing:border-box;box-sizing:border-box;-webkit-overflow-scrolling:touch;overflow-x:hidden;overflow-y:auto;@apply(--paper-scroll-header-container);}#headerContainer{position:absolute;top:0;right:0;left:0;}.bg-container{position:absolute;top:0;left:0;width:100%;height:100%;overflow:hidden;}#headerBg{@apply(--paper-scroll-header-panel-full-header);}#condensedHeaderBg{@apply(--paper-scroll-header-panel-condensed-header);}#headerBg,#condensedHeaderBg{position:absolute;top:0;left:0;width:100%;height:100%;background-repeat:no-repeat;background-size:cover;background-position:center center;}#condensedHeaderBg{opacity:0;}</style>
-  <template>
-    <div id="mainContainer">
-      <content id="mainContent" select=":not(paper-toolbar):not(.paper-header)"></content>
-    </div>
-    <div id="headerContainer">
-      <div class="bg-container">
-        <div id="condensedHeaderBg"></div>
-        <div id="headerBg"></div>
-      </div>
-      <content id="headerContent" select="paper-toolbar, .paper-header"></content>
-    </div>
-  </template>
-</dom-module>
-
 <dom-module id="paper-toolbar" assetpath="../../bower_components/paper-toolbar/">
   <template>
     <style>:host{/* technical */ display:block;position:relative;box-sizing:border-box;-moz-box-sizing:border-box;/* size */ height:var(--paper-toolbar-height,64px);background:var(--paper-toolbar-background,--primary-color);color:var(--paper-toolbar-color,--primary-text-color);@apply(--paper-toolbar);}:host(.animate){/* transition */ transition:height 0.18s ease-in;}:host(.medium-tall){height:calc(var(--paper-toolbar-height,64px) * 2);@apply(--paper-toolbar-medium);}:host(.tall){height:calc(var(--paper-toolbar-height,64px) * 3);@apply(--paper-toolbar-tall);}.toolbar-tools{position:relative;height:var(--paper-toolbar-height,64px);padding:0 16px;pointer-events:none;@apply(--layout-horizontal);@apply(--layout-center);@apply(--paper-toolbar-content);}/* * TODO:Where should media query breakpoints live so they can be shared between elements? */ @media (max-width:600px){:host{height:var(--paper-toolbar-sm-height,56px);}:host(.medium-tall){height:calc(var(--paper-toolbar-sm-height,56px) * 2);}:host(.tall){height:calc(var(--paper-toolbar-sm-height,56px) * 3);}.toolbar-tools{height:var(--paper-toolbar-sm-height,56px);}}#topBar{position:relative;}/* middle bar */ #middleBar{position:absolute;top:0;right:0;left:0;}:host(.tall) #middleBar,:host(.medium-tall) #middleBar{-webkit-transform:translateY(100%);transform:translateY(100%);}/* bottom bar */ #bottomBar{position:absolute;right:0;bottom:0;left:0;}/* * make elements (e.g. buttons) respond to mouse/touch events * * `.toolbar-tools` disables touch events so multiple toolbars can stack and not * absorb events. All children must have pointer events re-enabled to work as * expected. */ .toolbar-tools > ::content > *:not([disabled]){pointer-events:auto;}.toolbar-tools > ::content .title{@apply(--paper-font-common-base);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;font-size:20px;font-weight:400;line-height:1;pointer-events:none;@apply(--layout-flex);@apply(--paper-toolbar-title);}/** * TODO:Refactor these selectors * Work in progress. */ .toolbar-tools > ::content paper-icon-button[icon=menu]{margin-right:24px;}.toolbar-tools > ::content > .title,.toolbar-tools > ::content[select=".middle"] > .title,.toolbar-tools > ::content[select=".bottom"] > .title{margin-left:56px;}.toolbar-tools > ::content > paper-icon-button + .title,.toolbar-tools > ::content[select=".middle"] paper-icon-button + .title,.toolbar-tools > ::content[select=".bottom"] paper-icon-button + .title{margin-left:0;}.toolbar-tools > ::content > .fit{position:absolute;top:auto;right:0;bottom:0;left:0;width:auto;margin:0;}/* TODO(noms):Until we have a better solution for classes that don't use * /deep/ create our own. */ .start-justified{@apply(--layout-start-justified);}.center-justified{@apply(--layout-center-justified);}.end-justified{@apply(--layout-end-justified);}.around-justified{@apply(--layout-around-justified);}.justified{@apply(--layout-justified);}</style>
@@ -762,6 +762,24 @@
     <style>:host{/*background-color:white;*/ /*height:660px;*/ height:100%;}.conversation-container{overflow-y:auto;overflow-x:hidden;padding:20px 20px 100px 20px;}.conversation-header{background-color:#2196F3;padding:20px 15px;color:white;font-size:1.5em;}.newmessage-container{height:20%;}.newmessage-container{padding:10px 20px;box-sizing:border-box;}.newmessage-container{position:fixed;bottom:0;width:100%;z-index:10;}.newmessage-textarea{flex:1;}.send-button{background-color:black;}#spinner{position:absolute;left:45%;top:40%;--paper-spinner-color:black;}</style>
 
     </dom-module>
+<dom-module id="fp-newconversation" assetpath="../fp-newconversation/">
+    <template>
+        <style>:host{display:block;}span,input{@apply(--paper-font-body2);}.flex-vertical{@apply(--layout-vertical);@apply(--layout-center);}</style>
+
+        <fp-conversations-data id="dataProvider"></fp-conversations-data>
+
+        <div class="flex-vertical">
+            <gold-phone-input id="num" autofocus="" auto-validate="" preventinvalidinput="" label="Enter Phone number" value="{{_num}}"></gold-phone-input>
+        </div>
+
+        <paper-spinner-lite id="spinner"></paper-spinner-lite>
+
+    </template>
+
+    <style>.instruction{font-size:1.5em;color:darkgray;}.proceed-button{background-color:#2196F3;color:white;margin:20px 10px;}gold-phone-input{margin:10px 0px;}#spinner{position:absolute;left:45%;top:40%;--paper-spinner-color:black;}</style>
+
+
+    </dom-module>
 <dom-module id="fp-allconversations" assetpath="../fp-allconversations/">
     <template>
         <style>:host{display:block;}.horizontal-layout{/* layout properties for a local DOM element */ @apply(--layout-horizontal);@apply(--layout-center);}.flex-vertical{@apply(--layout-vertical);align-items:center;}.flexchild-vertical{@apply(--layout-flex);}</style>
@@ -779,32 +797,16 @@
        </template>
        <paper-spinner-lite id="spinner"></paper-spinner-lite>
         
+        <paper-icon-button id="newconvo" icon="add-circle-outline" class="create-newconversation" data-route="newconversation" role="button" title="Add conversation"></paper-icon-button>       
+
     </template>
 
-    <style>:host{height:100%;overflow-y:auto;}.convitem-container{padding:10px 20px;cursor:pointer;position:relative;}.convitem-container .contact{position:absolute;left:80px;top:10px;font-size:large;}.user-contact{color:#009688;}.public-contact{color:black;}.convo-peek{overflow:hidden;white-space:nowrap;text-overflow:ellipsis;position:absolute;left:80px;bottom:10px;width:70%;color:#03A9F4;}.owned{color:#E91E63;}.separator{height:1px;background:rgba(0,0,0,0.12);right:40px;left:80px;}#contact-icon{box-shadow:none;}.public{background:black;}.user{background:#009688;}#spinner{position:absolute;left:45%;top:40%;--paper-spinner-color:black;}</style>
+    <style>:host{height:100%;overflow-y:auto;}.convitem-container{padding:10px 20px;cursor:pointer;position:relative;}.convitem-container .contact{position:absolute;left:80px;top:10px;font-size:large;}.user-contact{color:#009688;}.public-contact{color:black;}.convo-peek{overflow:hidden;white-space:nowrap;text-overflow:ellipsis;position:absolute;left:80px;bottom:10px;width:70%;color:#03A9F4;}.owned{color:#E91E63;}.separator{height:1px;background:rgba(0,0,0,0.12);right:40px;left:80px;}#contact-icon{box-shadow:none;}.public{background:black;}.user{background:#009688;}#spinner{position:absolute;left:45%;top:40%;--paper-spinner-color:black;}.create-newconversation{position:fixed;bottom:5px;right:5px;height:50px;width:50px;}</style>
 
         
     
 
     <style></style>
-
-    </dom-module>
-<dom-module id="fp-newconversation" assetpath="../fp-newconversation/">
-    <template>
-        <style>:host{display:block;}span,input{@apply(--paper-font-body2);}.flex-vertical{@apply(--layout-vertical);@apply(--layout-center);}</style>
-
-        <fp-conversations-data id="dataProvider"></fp-conversations-data>
-
-        <div class="flex-vertical">
-            <gold-phone-input id="num" autofocus="" auto-validate="" preventinvalidinput="" label="Enter Phone number" value="{{_num}}"></gold-phone-input>
-        </div>
-
-        <paper-spinner-lite id="spinner"></paper-spinner-lite>
-
-    </template>
-
-    <style>.instruction{font-size:1.5em;color:darkgray;}.proceed-button{background-color:#2196F3;color:white;margin:20px 10px;}gold-phone-input{margin:10px 0px;}#spinner{position:absolute;left:45%;top:40%;--paper-spinner-color:black;}</style>
-
 
     </dom-module>
 
@@ -846,64 +848,73 @@
             <paper-input id="name" class="setting" autofocus="" label="Enter your name" type="text" required="" error-message="Invalid name!" value="{{name}}"></paper-input>
             <paper-checkbox id="remember" class="setting" checked="{{remember}}">Remember me</paper-checkbox>       
         </div>                      
-        <paper-fab class="save" mini="" icon="arrow-forward" title="save changes" on-click="_onSave"></paper-fab>
+        <paper-fab class="save" mini="" icon="check" title="save changes" on-click="_onSave"></paper-fab>
     </paper-dialog>
   </template>
   </dom-module>
 </div><dom-module id="fp-app">
     <template>
-        
-        <paper-toolbar class="fixed-header">
-            <div class="toolbar">
-                <paper-icon-button icon="arrow-back" class$="{{enableBack(heading)}}" data-route="home"></paper-icon-button>
-                <header class="flexchild-grow">{{heading}}</header>
-                <div class="toolbar-icons">
-                    <paper-icon-button id="newconvo" icon="add-circle-outline" class$="{{enableNew(heading)}}" data-route="newconversation" role="button" title="Add conversation"></paper-icon-button>
-                </div>
+          
+        <paper-drawer-panel>
+              
+              <paper-scroll-header-panel drawer="" fixed="">
 
-                <paper-menu-button id="menu" class="is-hidden">
-                  <paper-icon-button icon="more-vert" class="dropdown-trigger"></paper-icon-button>
-                  <paper-menu class="dropdown-content">
-                    <paper-item title="Settings" on-click="_onOpenSettings">
-                         <iron-icon icon="settings"></iron-icon>
-                    </paper-item>
-                    <paper-item title="Sign out" on-click="_onSignout">
-                         <iron-icon icon="exit-to-app"></iron-icon>
-                    </paper-item>
-                  </paper-menu>
-                </paper-menu-button>
-            </div>
-        </paper-toolbar>
+                
+                <paper-toolbar id="drawerToolbar">                        
+                        <paper-item title="Sign out" on-click="_onSignout" data-route="signout">
+                                <iron-icon icon="exit-to-app" class="signout"></iron-icon>
+                                <span>Sign out {{accessInfo.name}}</span>
+                        </paper-item>                  
+                </paper-toolbar>
+                <paper-menu class="dropdown-content" selected="0">
+                        <paper-item title="Contacts" data-route="contacts">
+                                <iron-icon icon="account-box"></iron-icon>
+                                <span class="menu-item">Contacts</span>
+                        </paper-item>
+                        
 
-        <fp-settings id="settings" access-info="{{accessInfo}}"></fp-settings>
+                        <paper-item title="Settings" on-click="_onOpenSettings" data-route="settings">
+                                <iron-icon icon="settings"></iron-icon>
+                                <span class="menu-item">Settings</span>
+                        </paper-item>
+                </paper-menu>                
+              </paper-scroll-header-panel>                 
+          <div main="">
+                <div class="toolbar">
+                        <paper-icon-button id="menu" icon="menu" class$="{{enableMenu(accessInfo, heading)}}" paper-drawer-toggle=""></paper-icon-button>
+                        <paper-icon-button icon="arrow-back" class$="{{enableBack(heading)}}" data-route="home"></paper-icon-button>
+                        <header class="flexchild-grow">{{heading}}</header>
+                </div> 
 
+                
+                <fp-conversations-data id="dataprovider"></fp-conversations-data>
 
-        
-        <fp-conversations-data id="dataprovider"></fp-conversations-data>
+                
+                <div id="mainContent" class="main-content">               
+                    
+                    <fp-user-auth id="userauth" on-authorize="_onAuthorize" class="is-active" data-target-route="userauth" access-info="{{accessInfo}}">
+                    </fp-user-auth>
 
+                    
+                    <fp-allconversations id="allconversations" on-showconversation="_onShowConversation" data-target-route="home" data-route="conversation"></fp-allconversations>
+                    <fp-conversation id="conversation" data-target-route="conversation"></fp-conversation>
+                    <fp-newconversation id="addconvo" data-target-route="newconversation" on-createconvo="_onCreateConvo"></fp-newconversation>
+                </div> 
 
-        
-        <div id="mainContent" class="main-content">
-            
-            <fp-user-auth id="userauth" on-authorize="_onAuthorize" class="is-active" data-target-route="userauth" access-info="{{accessInfo}}">
-            </fp-user-auth>
+          </div>
+        </paper-drawer-panel>
 
-            
-            <fp-allconversations id="allconversations" on-showconversation="_onShowConversation" data-target-route="home" data-route="conversation"></fp-allconversations>
-            <fp-conversation id="conversation" data-target-route="conversation"></fp-conversation>
-            <fp-newconversation id="addconvo" data-target-route="newconversation" on-createconvo="_onCreateConvo"></fp-newconversation>
-        </div>
+       <fp-settings id="settings" access-info="{{accessInfo}}"></fp-settings>
 
         <paper-dialog id="namedialog" modal="">
                 <h2>Authorized<iron-icon class="iconchecked" icon="icons:check"></iron-icon> </h2>
                 <span>How do you want to be called?</span>
                 <paper-input id="name" autofocus="" label="Enter your name" type="text" required="" error-message="Invalid name!"></paper-input>
                 <paper-fab class="nameforward" mini="" icon="arrow-forward" title="Continue" on-click="_onNameSave"></paper-fab>
-        </paper-dialog>
-
+        </paper-dialog>        
     </template>
 
-    <style>body{background:#fafafa;font-family:'Roboto','Helvetica Neue',Helvetica,Arial,sans-serif;color:#333;}.toolbar{display:flex;align-items:center;width:100%;}.toolbar .create-newconversation,.toolbar .go-back{display:none;}.create-newconversation{position:fixed;bottom:5px;right:5px;height:50px;width:50px;}.toolbar .create-newconversation.is-enabled,.toolbar .go-back.is-enabled{display:inline-block;}.flexchild-grow{flex-grow:1;}.toolbar-icons{align-self:flex-end;}.fixed-header{height:64px;position:fixed;width:100%;z-index:1;background:rgba(3,3,3,0);color:#212121;}header{font-size:larger;font-weight:400;}.main-content{margin-top:50px;height:calc(100vh - 70px);}.settings-menu{display:none;}.main-content .is-active{display:block;}.main-content *{display:none;}.nameforward{float:right;margin-right:10px;background-color:black;}.iconchecked{margin-left:10px;margin-bottom:5px;}.is-hidden{display:none;}</style>
+    <style>body{background:#fafafa;font-family:'Roboto','Helvetica Neue',Helvetica,Arial,sans-serif;color:#333;}.toolbar{display:flex;align-items:center;width:100%;height:40px;text-align:center;}.toolbar .create-newconversation,.toolbar .go-back{display:none;}.create-newconversation{position:fixed;bottom:5px;right:5px;height:50px;width:50px;}.toolbar .create-newconversation.is-enabled,.toolbar .go-back.is-enabled{display:inline-block;}.flexchild-grow{flex-grow:1;}.toolbar-icons{align-self:flex-end;}.fixed-header{height:64px;position:fixed;width:100%;z-index:1;background:rgba(3,3,3,0);color:#212121;}header{font-size:larger;font-weight:400;}.main-content{height:calc(100vh - 70px);}.settings-menu{display:none;}.main-content .is-active{display:block;}.main-content *{display:none;}.nameforward{float:right;margin-right:10px;background-color:black;}.iconchecked{margin-left:10px;margin-bottom:5px;}.is-hidden{display:none;}.menu-item{margin-left:20px;cursor:pointer;}.menu-name{color:white;margin-right:20px;}.signout{margin-right:20px;}#drawerToolbar{background-color:white;	 border-bottom:thin solid #C7C7C7;cursor:pointer;}</style>
 
     </dom-module>
 </body></html>
