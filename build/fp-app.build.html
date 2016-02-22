@@ -749,7 +749,7 @@
 
 
             <div class="horizontal-layout newmessage-container">
-                <paper-textarea id="newmessage" class="newmessage-textarea" placeholder="Write a message" max-rows="3"></paper-textarea>
+                <paper-textarea id="newmessage" type="text" class="newmessage-textarea" placeholder="Write a message" max-rows="3"></paper-textarea>
                 <paper-fab mini="" icon="send" class="send-button" on-click="onSendMessage"></paper-fab>
             </div>
        </div>
@@ -769,7 +769,7 @@
         <fp-conversations-data id="dataProvider"></fp-conversations-data>
 
         <div class="flex-vertical">
-            <gold-phone-input id="num" autofocus="" auto-validate="" preventinvalidinput="" label="Enter Phone number" value="{{_num}}"></gold-phone-input>
+            <gold-phone-input id="num" autofocus="" auto-validate="" preventinvalidinput="" label="Enter Phone number" value="{{_num}}" error-message="Invalid Number"></gold-phone-input>            
         </div>
 
         <paper-spinner-lite id="spinner"></paper-spinner-lite>
@@ -914,7 +914,7 @@
         </paper-dialog>        
     </template>
 
-    <style>body{background:#fafafa;font-family:'Roboto','Helvetica Neue',Helvetica,Arial,sans-serif;color:#333;}.toolbar{display:flex;align-items:center;width:100%;height:40px;text-align:center;}.toolbar .create-newconversation,.toolbar .go-back{display:none;}.create-newconversation{position:fixed;bottom:5px;right:5px;height:50px;width:50px;}.toolbar .create-newconversation.is-enabled,.toolbar .go-back.is-enabled{display:inline-block;}.flexchild-grow{flex-grow:1;}.toolbar-icons{align-self:flex-end;}.fixed-header{height:64px;position:fixed;width:100%;z-index:1;background:rgba(3,3,3,0);color:#212121;}header{font-size:larger;font-weight:400;}.main-content{height:calc(100vh - 70px);}.settings-menu{display:none;}.main-content .is-active{display:block;}.main-content *{display:none;}.nameforward{float:right;margin-right:10px;background-color:black;}.iconchecked{margin-left:10px;margin-bottom:5px;}.is-hidden{display:none;}.menu-item{margin-left:20px;cursor:pointer;}.menu-name{color:white;margin-right:20px;}.signout{margin-right:20px;}#drawerToolbar{background-color:white;	 border-bottom:thin solid #C7C7C7;cursor:pointer;}</style>
+    <style>body{background:#fafafa;font-family:'Roboto','Helvetica Neue',Helvetica,Arial,sans-serif;color:#333;}.toolbar{display:flex;align-items:center;width:100%;height:40px;text-align:center;padding:0;}.toolbar .create-newconversation,.toolbar .go-back{display:none;}.create-newconversation{position:fixed;bottom:5px;right:5px;height:50px;width:50px;}.toolbar .create-newconversation.is-enabled,.toolbar .go-back.is-enabled{display:inline-block;}.flexchild-grow{flex-grow:1;}.toolbar-icons{align-self:flex-end;}.fixed-header{height:64px;position:fixed;width:100%;z-index:1;background:rgba(3,3,3,0);color:#212121;}header{font-size:larger;font-weight:400;}.main-content{height:calc(100vh - 70px);}.settings-menu{display:none;}.main-content .is-active{display:block;}.main-content *{display:none;}.nameforward{float:right;margin-right:10px;background-color:black;}.iconchecked{margin-left:10px;margin-bottom:5px;}.is-hidden{display:none;}.menu-item{margin-left:20px;cursor:pointer;}.menu-name{color:white;margin-right:20px;}#drawerToolbar{background-color:white;	 border-bottom:thin solid #C7C7C7;cursor:pointer;}</style>
 
     </dom-module>
 </body></html>
