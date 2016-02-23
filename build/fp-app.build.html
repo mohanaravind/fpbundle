@@ -749,7 +749,7 @@
 
 
             <div class="horizontal-layout newmessage-container">
-                <paper-textarea id="newmessage" type="text" class="newmessage-textarea" autocomplete="" placeholder="Write a message" max-rows="3"></paper-textarea>
+                <paper-textarea id="newmessage" type="text" class="newmessage-textarea" autocomplete="" placeholder="Write a message" max-rows="3" on-focus="_scrollToView"></paper-textarea>
                 <paper-fab mini="" icon="send" class="send-button" on-click="onSendMessage"></paper-fab>
             </div>
        </div>
@@ -759,7 +759,7 @@
       
     </template>
 
-    <style>:host{/*background-color:white;*/ /*height:660px;*/ height:100%;}.conversation-container{overflow-y:auto;overflow-x:hidden;padding:20px 20px 100px 20px;}.conversation-header{background-color:#2196F3;padding:20px 15px;color:white;font-size:1.5em;}.newmessage-container{height:20%;}.newmessage-container{padding:10px 20px;box-sizing:border-box;}.newmessage-container{position:fixed;bottom:0;width:100%;z-index:10;}.newmessage-textarea{flex:1;}.send-button{background-color:black;}#spinner{position:absolute;left:45%;top:40%;--paper-spinner-color:black;}</style>
+    <style>:host{/*background-color:white;*/ /*height:660px;*/ height:100%;}.conversation-container{overflow-y:auto;overflow-x:hidden;padding:20px 20px 0px 20px;}.conversation-header{background-color:#2196F3;padding:20px 15px;color:white;font-size:1.5em;}.newmessage-container{height:20%;}.newmessage-container{padding:10px 20px;box-sizing:border-box;}.newmessage-container{position:fixed;bottom:0;width:100%;z-index:10;}.newmessage-textarea{flex:1;}.send-button{background-color:black;}#spinner{position:absolute;left:45%;top:40%;--paper-spinner-color:black;}</style>
 
     </dom-module>
 <dom-module id="fp-newconversation" assetpath="../fp-newconversation/">
@@ -855,7 +855,7 @@
 </div><dom-module id="fp-app">
     <template>
           
-        <paper-drawer-panel>
+        <paper-drawer-panel force-narrow="" disable-edge-swipe="">
               
               <paper-scroll-header-panel drawer="" fixed="">
 
