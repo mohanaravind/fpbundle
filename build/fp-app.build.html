@@ -737,7 +737,7 @@
     </dom-module>
 <dom-module id="fp-conversation" assetpath="../fp-conversation/">
     <template>
-        <style>:host{display:block;}span,input{@apply(--paper-font-body2);}.horizontal-layout{/* layout properties for a local DOM element */ @apply(--layout-horizontal);@apply(--layout-center);}.flex-vertical{@apply(--layout-vertical);height:80%;}.flexchild-vertical{@apply(--layout-flex);}</style>
+        <style>:host{display:block;}span,input{@apply(--paper-font-body2);}.horizontal-layout{/* layout properties for a local DOM element */ @apply(--layout-horizontal);@apply(--layout-center);}.flex-vertical{@apply(--layout-vertical);height:90%;}.flexchild-vertical{@apply(--layout-flex);}</style>
         <fp-conversations-data id="dataProvider"></fp-conversations-data>
         
         <div class="flex-vertical container">
@@ -745,11 +745,14 @@
                 <template is="dom-repeat" items="{{messages}}" on-dom-change="_scrollToView">
                     <fp-conversation-message id="{{index}}" message="{{item}}"></fp-conversation-message>
                 </template>
+
+                
+                <div id="eom">&nbsp;</div>
             </div>
 
 
             <div class="horizontal-layout newmessage-container">
-                <paper-textarea id="newmessage" type="text" class="newmessage-textarea" autocomplete="" placeholder="Write a message" max-rows="3" on-focus="_scrollToView"></paper-textarea>
+                <paper-textarea id="newmessage" type="text" class="newmessage-textarea" autocomplete="" placeholder="Write a message" max-rows="3" on-value-change="_onTyping"></paper-textarea>
                 <paper-fab mini="" icon="send" class="send-button" on-click="onSendMessage"></paper-fab>
             </div>
        </div>
@@ -759,7 +762,7 @@
       
     </template>
 
-    <style>:host{/*background-color:white;*/ /*height:660px;*/ height:100%;}.conversation-container{overflow-y:auto;overflow-x:hidden;padding:20px 20px 0px 20px;}.conversation-header{background-color:#2196F3;padding:20px 15px;color:white;font-size:1.5em;}.newmessage-container{height:20%;}.newmessage-container{padding:10px 20px;box-sizing:border-box;}.newmessage-container{position:fixed;bottom:0;width:100%;z-index:10;}.newmessage-textarea{flex:1;}.send-button{background-color:black;}#spinner{position:absolute;left:45%;top:40%;--paper-spinner-color:black;}</style>
+    <style>:host{/*background-color:white;*/ /*height:660px;*/ height:100%;}.conversation-container{overflow-y:auto;overflow-x:hidden;padding:20px 20px 0px 20px;}.conversation-header{background-color:#2196F3;padding:20px 15px;color:white;font-size:1.5em;}.newmessage-container{height:20%;}.newmessage-container{padding:10px 20px;box-sizing:border-box;}.newmessage-container{position:fixed;bottom:0;width:100%;z-index:10;}.newmessage-textarea{flex:1;}.send-button{width:50px;height:50px;background-color:black;}#spinner{position:absolute;left:45%;top:40%;--paper-spinner-color:black;}</style>
 
     </dom-module>
 <dom-module id="fp-newconversation" assetpath="../fp-newconversation/">
