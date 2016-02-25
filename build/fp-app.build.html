@@ -845,7 +845,7 @@
     
     <fp-conversations-data id="dataprovider"></fp-conversations-data>
 
-    <paper-dialog id="dialog" modal="">                
+    <paper-dialog id="dialog">                
         <h2><iron-icon class="iconsettings" icon="icons:settings"></iron-icon>Settings</h2>
         <div>                
             <paper-input id="name" class="setting" autofocus="" label="Enter your name" type="text" required="" error-message="Invalid name!" value="{{name}}"></paper-input>
@@ -865,7 +865,7 @@
                 
                 <paper-toolbar id="drawerToolbar" class="{{enableToolbar(accessInfo)}}">                        
                         <paper-item title="Sign out" on-click="_onSignout" data-route="signout">
-                                <iron-icon icon="exit-to-app" class="signout"></iron-icon>
+                                <iron-icon icon="account-circle" class="signout"></iron-icon>
                                 <span>Sign out {{accessInfo.name}}</span>
                         </paper-item>                  
                 </paper-toolbar>
@@ -874,8 +874,10 @@
                                 <iron-icon icon="account-box"></iron-icon>
                                 <span class="menu-item">Contacts</span>
                         </paper-item>
-                        
-
+                        <paper-item title="Open" on-click="_onOpenOpen" data-route="open">
+                                <iron-icon icon="cloud-queue"></iron-icon>
+                                <span class="menu-item">Open</span>
+                        </paper-item>                                         
                         <paper-item class="settings" title="Settings" on-click="_onOpenSettings" data-route="settings">
                                 <iron-icon icon="settings"></iron-icon>
                                 <span class="menu-item">Settings</span>
@@ -917,7 +919,7 @@
         </paper-dialog>        
     </template>
 
-    <style>body{background:#fafafa;font-family:'Roboto','Helvetica Neue',Helvetica,Arial,sans-serif;color:#333;}.toolbar{display:flex;align-items:center;width:100%;height:40px;text-align:center;padding:0;}.toolbar .create-newconversation,.toolbar .go-back{display:none;}.create-newconversation{position:fixed;bottom:5px;right:5px;height:50px;width:50px;}.toolbar .create-newconversation.is-enabled,.toolbar .go-back.is-enabled{display:inline-block;}.flexchild-grow{flex-grow:1;}.toolbar-icons{align-self:flex-end;}.fixed-header{height:64px;position:fixed;width:100%;z-index:1;background:rgba(3,3,3,0);color:#212121;}header{font-size:larger;font-weight:400;}.main-content{height:calc(100vh - 70px);}.settings-menu{display:none;}.main-content .is-active{display:block;}.main-content *{display:none;}.nameforward{float:right;margin-right:10px;background-color:black;}.iconchecked{margin-left:10px;margin-bottom:5px;}.is-hidden{display:none;}.menu-item{margin-left:20px;cursor:pointer;}.menu-name{color:white;margin-right:20px;}#drawerToolbar{background-color:white;	 border-bottom:thin solid #C7C7C7;cursor:pointer;}.menu-toolbar.is-signedout .contacts,.settings{display:none;}</style>
+    <style>body{background:#fafafa;font-family:'Roboto','Helvetica Neue',Helvetica,Arial,sans-serif;color:#333;}.toolbar{display:flex;align-items:center;width:100%;height:40px;text-align:center;padding:0;}.toolbar .create-newconversation,.toolbar .go-back{display:none;}.create-newconversation{position:fixed;bottom:5px;right:5px;height:50px;width:50px;}.toolbar .create-newconversation.is-enabled,.toolbar .go-back.is-enabled{display:inline-block;}.flexchild-grow{flex-grow:1;}.toolbar-icons{align-self:flex-end;}.fixed-header{height:64px;position:fixed;width:100%;z-index:1;background:rgba(3,3,3,0);color:#212121;}header{font-size:larger;font-weight:400;}.main-content{height:calc(100vh - 70px);}.main-content .is-active{display:block;}.main-content *{display:none;}.nameforward{float:right;margin-right:10px;background-color:black;}.iconchecked{margin-left:10px;margin-bottom:5px;}.is-hidden{display:none;}.menu-item{margin-left:20px;cursor:pointer;}.menu-name{color:white;margin-right:20px;}#drawerToolbar{background-color:white;	 border-bottom:thin solid #C7C7C7;cursor:pointer;}</style>
 
     </dom-module>
 </body></html>
