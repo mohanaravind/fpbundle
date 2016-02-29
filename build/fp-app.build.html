@@ -723,10 +723,10 @@
     <style>:host{display:block;}</style>
     
     
-    <p class$="{{_computeClass(message)}}">{{message.text}}</p>
+    <div id="msg"></div>
   </template>
     
-  <style>.text{margin:0;white-space:pre-wrap;font-family:'Roboto';line-height:1.5;color:#03A9F4;}.owned.text{text-align:right;color:#E91E63;}</style>    
+  <style>.text{margin:0;white-space:pre-wrap;font-family:'Roboto';line-height:1.5;color:#03A9F4;}.owned{text-align:right;color:#E91E63;}.emj{/* font-family:"EmojiSymbols";*/ display:inline-block;}</style>    
     
     
   </dom-module>
@@ -752,17 +752,22 @@
 
 
             <div class="horizontal-layout newmessage-container">
+                <paper-fab mini="" icon="face" class="emoji-button" on-click="_showEmoji"></paper-fab>
                 <paper-textarea id="newmessage" type="text" class="newmessage-textarea" autocomplete="" placeholder="Write a message" max-rows="3" on-value-change="_onTyping"></paper-textarea>
                 <paper-fab mini="" icon="send" class="send-button" on-click="onSendMessage"></paper-fab>
             </div>
        </div>
+
+        <paper-dialog id="emojidialog">
+            <div id="emojiContainer" class="emoji-container" on-click="_addEmojiToMessage"></div>
+        </paper-dialog>       
 
        <paper-spinner-lite id="spinner"></paper-spinner-lite>
 
       
     </template>
 
-    <style>:host{/*background-color:white;*/ /*height:660px;*/ height:100%;}.conversation-container{overflow-y:auto;overflow-x:hidden;padding:20px 20px 0px 20px;}.conversation-header{background-color:#2196F3;padding:20px 15px;color:white;font-size:1.5em;}.newmessage-container{height:20%;}.newmessage-container{padding:10px 20px;box-sizing:border-box;}.newmessage-container{position:fixed;bottom:0;width:100%;z-index:10;}.newmessage-textarea{flex:1;}.send-button{width:50px;height:50px;background-color:black;}#spinner{position:absolute;left:45%;top:40%;--paper-spinner-color:black;}</style>
+    <style>:host{height:100%;}.emj{margin:5px;display:inline-block;cursor:pointer;}.conversation-container{overflow-y:auto;overflow-x:hidden;padding:20px 20px 0px 20px;}.conversation-header{background-color:#2196F3;padding:20px 15px;color:white;font-size:1.5em;}.newmessage-container{height:20%;}.newmessage-container{box-sizing:border-box;}.newmessage-container{position:fixed;bottom:0;width:100%;z-index:10;}.newmessage-textarea{flex:1;}.send-button,.emoji-button{width:30px;	 height:30px;background-color:black;margin:5px;}#spinner{position:absolute;left:45%;top:40%;--paper-spinner-color:black;}</style>
 
     </dom-module>
 <dom-module id="fp-newconversation" assetpath="../fp-newconversation/">
@@ -919,7 +924,7 @@
         </paper-dialog>        
     </template>
 
-    <style>body{background:#fafafa;font-family:'Roboto','Helvetica Neue',Helvetica,Arial,sans-serif;color:#333;}.toolbar{display:flex;align-items:center;width:100%;height:40px;text-align:center;padding:0;}.toolbar .create-newconversation,.toolbar .go-back{display:none;}.create-newconversation{position:fixed;bottom:5px;right:5px;height:50px;width:50px;}.toolbar .create-newconversation.is-enabled,.toolbar .go-back.is-enabled{display:inline-block;}.flexchild-grow{flex-grow:1;}.toolbar-icons{align-self:flex-end;}.fixed-header{height:64px;position:fixed;width:100%;z-index:1;background:rgba(3,3,3,0);color:#212121;}header{font-size:larger;font-weight:400;}.main-content{height:calc(100vh - 70px);}.main-content .is-active{display:block;}.main-content *{display:none;}.nameforward{float:right;margin-right:10px;background-color:black;}.iconchecked{margin-left:10px;margin-bottom:5px;}.is-hidden{display:none;}.menu-item{margin-left:20px;cursor:pointer;}.menu-name{color:white;margin-right:20px;}#drawerToolbar{background-color:white;	 border-bottom:thin solid #C7C7C7;cursor:pointer;}</style>
+    <style>body{background:#fafafa;font-family:'Roboto','Helvetica Neue',Helvetica,Arial,sans-serif;color:#333;}/* @font-face{font-family:"EmojiSymbols";src:url('../../lib/EmojiSymbols-Regular.woff') format('woff');text-decoration:none;font-style:normal;}*/ .toolbar{display:flex;align-items:center;width:100%;height:40px;text-align:center;padding:0;}.toolbar .create-newconversation,.toolbar .go-back{display:none;}.create-newconversation{position:fixed;bottom:5px;right:5px;height:50px;width:50px;}.toolbar .create-newconversation.is-enabled,.toolbar .go-back.is-enabled{display:inline-block;}.flexchild-grow{flex-grow:1;}.toolbar-icons{align-self:flex-end;}.fixed-header{height:64px;position:fixed;width:100%;z-index:1;background:rgba(3,3,3,0);color:#212121;}header{font-size:larger;font-weight:400;}.main-content{height:calc(100vh - 70px);}.main-content .is-active{display:block;}.main-content *{display:none;}.nameforward{float:right;margin-right:10px;background-color:black;}.iconchecked{margin-left:10px;margin-bottom:5px;}.is-hidden{display:none;}.menu-item{margin-left:20px;cursor:pointer;}.menu-name{color:white;margin-right:20px;}#drawerToolbar{background-color:white;	 border-bottom:thin solid #C7C7C7;cursor:pointer;}</style>
 
     </dom-module>
 </body></html>
