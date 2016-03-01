@@ -726,7 +726,7 @@
     <div id="msg"></div>
   </template>
     
-  <style>.text{margin:0;white-space:pre-wrap;font-family:'Roboto';line-height:1.5;color:#03A9F4;}.owned{text-align:right;color:#E91E63;}.emj{/* font-family:"EmojiSymbols";*/ display:inline-block;}</style>    
+  <style>.text{margin:0;white-space:pre-wrap;font-family:'Roboto';line-height:1.5;color:#03A9F4;}.owned{text-align:right;text-align:var(--owned-text-align);color:#E91E63;}.emj{/* font-family:"EmojiSymbols";*/ display:inline-block;}</style>    
     
     
   </dom-module>
@@ -758,7 +758,7 @@
             </div>
        </div>
 
-        <paper-dialog id="emojidialog">
+        <paper-dialog id="emojidialog" on-iron-overlay-closed="_focusNewMessage">
             <div id="emojiContainer" class="emoji-container" on-click="_addEmojiToMessage"></div>
         </paper-dialog>       
 
@@ -767,7 +767,7 @@
       
     </template>
 
-    <style>:host{height:100%;}.emj{margin:5px;display:inline-block;cursor:pointer;}.conversation-container{overflow-y:auto;overflow-x:hidden;padding:20px 20px 0px 20px;}.conversation-header{background-color:#2196F3;padding:20px 15px;color:white;font-size:1.5em;}.newmessage-container{height:20%;}.newmessage-container{box-sizing:border-box;}.newmessage-container{position:fixed;bottom:0;width:100%;z-index:10;}.newmessage-textarea{flex:1;}.send-button,.emoji-button{width:30px;	 height:30px;background-color:black;margin:5px;}#spinner{position:absolute;left:45%;top:40%;--paper-spinner-color:black;}</style>
+    <style>:host{height:100%;}.emj{margin:5px;display:inline-block;cursor:pointer;}.conversation-container{overflow-y:auto;overflow-x:hidden;padding:20px 20px 0px 20px;}.conversation-header{background-color:#2196F3;padding:20px 15px;color:white;font-size:1.5em;}.newmessage-container{height:20%;}.newmessage-container{box-sizing:border-box;}.newmessage-container{position:fixed;bottom:0;width:100%;z-index:10;}.newmessage-textarea{flex:1;max-width:78%;}.send-button,.emoji-button{width:30px;	 height:30px;background-color:black;margin:5px;}#spinner{position:absolute;left:45%;top:40%;--paper-spinner-color:black;}</style>
 
     </dom-module>
 <dom-module id="fp-newconversation" assetpath="../fp-newconversation/">
@@ -799,7 +799,8 @@
             <div class="convitem-container" on-click="_onShowConversation">
                 <paper-fab id="contact-icon" class$="{{_computeIconClass(item)}}" mini="" icon="{{_computeIcon(item)}}"></paper-fab>
                 <span class$="{{_computeContactClass(item)}}">{{item.name}}</span>
-                <span class$="{{_computeConvoPeekClass(item.lastMessage)}}">{{item.lastMessage.text}}</span>
+                <fp-conversation-message class$="{{_computeConvoPeekClass(item.lastMessage)}}" message="{{item.lastMessage}}"></fp-conversation-message>
+
             </div>
             <div class="separator"></div>
        </template>
@@ -809,7 +810,7 @@
 
     </template>
 
-    <style>:host{height:100%;overflow-y:auto;}.convitem-container{padding:10px 20px;cursor:pointer;position:relative;}.convitem-container .contact{position:absolute;left:80px;top:10px;font-size:large;}.user-contact{color:#009688;}.public-contact{color:black;}.convo-peek{overflow:hidden;white-space:nowrap;text-overflow:ellipsis;position:absolute;left:80px;bottom:10px;width:70%;color:#03A9F4;}.owned{color:#E91E63;}.separator{height:1px;background:rgba(0,0,0,0.12);right:40px;left:80px;}#contact-icon{box-shadow:none;}.public{background:black;}.user{background:#009688;}#spinner{position:absolute;left:45%;top:40%;--paper-spinner-color:black;}.create-newconversation{position:fixed;bottom:5px;right:5px;height:50px;width:50px;}</style>
+    <style>:host{height:100%;overflow-y:auto;}.convitem-container{padding:10px 20px;cursor:pointer;position:relative;}.convitem-container .contact{position:absolute;left:80px;top:10px;font-size:large;}.user-contact{color:#009688;}.public-contact{color:black;}.convo-peek{overflow:hidden;white-space:nowrap;text-overflow:ellipsis;position:absolute;left:80px;bottom:10px;width:70%;color:#03A9F4;--owned-text-align:left;}.owned{color:#E91E63;}.separator{height:1px;background:rgba(0,0,0,0.12);right:40px;left:80px;}#contact-icon{box-shadow:none;}.public{background:black;}.user{background:#009688;}#spinner{position:absolute;left:45%;top:40%;--paper-spinner-color:black;}.create-newconversation{position:fixed;bottom:5px;right:5px;height:50px;width:50px;}</style>
 
         
     
