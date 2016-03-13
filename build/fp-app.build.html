@@ -726,7 +726,7 @@
     <div id="msg"></div>
   </template>
     
-  <style>.text{margin:0;white-space:pre-wrap;font-family:'Roboto';line-height:1.5;color:#03A9F4;}.owned{text-align:right;text-align:var(--owned-text-align);color:#E91E63;}.emj{/* font-family:"EmojiSymbols";*/ display:inline-block;}</style>    
+  <style>.msg{margin:10px;}.text{margin:0;white-space:pre-wrap;font-family:'Roboto';line-height:1.5;color:#03A9F4;}.owned{text-align:right;text-align:var(--owned-text-align);color:#E91E63;}.emj{/* font-family:"EmojiSymbols";*/ display:inline-block;}.timestamp{color:lightgray;font-size:0.75em;margin:0;}</style>    
     
     
   </dom-module>
@@ -735,15 +735,40 @@
     <template></template>
 
     </dom-module>
+<dom-module id="addon-moodminer" assetpath="../addon-moodminer/">
+	<template>
+		<fp-conversations-data id="dataProvider"></fp-conversations-data>
+	</template>
+
+  </dom-module>
+<dom-module id="addon-moodminer-icon" assetpath="../addon-moodminer/">
+		<template>
+		<style>			:host{				display:block;			}		</style>
+
+		<span id="mood"></span>
+
+		<fp-conversations-data id="dataProvider"></fp-conversations-data>
+	</template>
+
+  </dom-module>
+
 <dom-module id="fp-conversation" assetpath="../fp-conversation/">
     <template>
-        <style>:host{display:block;}span,input{@apply(--paper-font-body2);}.horizontal-layout{/* layout properties for a local DOM element */ @apply(--layout-horizontal);@apply(--layout-center);}.flex-vertical{@apply(--layout-vertical);height:90%;}.flexchild-vertical{@apply(--layout-flex);}</style>
+        <style>:host{display:block;}span,input{@apply(--paper-font-body2);}.horizontal-layout{/* layout properties for a local DOM element */ @apply(--layout-horizontal);@apply(--layout-center);}.flex-vertical{@apply(--layout-vertical);height:90%;}.flexchild-vertical{@apply(--layout-flex);}.addon-icon{position:absolute;top:10px;left:50px;}</style>
         <fp-conversations-data id="dataProvider"></fp-conversations-data>
         
         <div class="flex-vertical container">
             <div class="conversation-container flexchild-vertical">
+                
+                <addon-moodminer-icon class="addon-icon" num="{{num}}"></addon-moodminer-icon>
                 <template is="dom-repeat" items="{{messages}}" on-dom-change="_scrollToView">
-                    <fp-conversation-message id="{{index}}" message="{{item}}"></fp-conversation-message>
+                    <template is="dom-if" if="{{item.text}}">
+                        <fp-conversation-message id="{{index}}" message="{{item}}" displaytime="">
+                        </fp-conversation-message>
+                    </template>
+                    <template is="dom-if" if="{{item.isTimestamp}}">
+                        <p class="timeline">{{item.displaydate}}</p>
+                    </template>
                 </template>
 
                 
@@ -764,10 +789,10 @@
 
        <paper-spinner-lite id="spinner"></paper-spinner-lite>
 
-      
+       <addon-moodminer id="addonMoodminer"></addon-moodminer>
     </template>
 
-    <style>:host{height:100%;}.emj{margin:5px;display:inline-block;cursor:pointer;}.conversation-container{overflow-y:auto;overflow-x:hidden;padding:20px 20px 0px 20px;}.conversation-header{background-color:#2196F3;padding:20px 15px;color:white;font-size:1.5em;}.newmessage-container{height:20%;}.newmessage-container{box-sizing:border-box;}.newmessage-container{position:fixed;bottom:0;width:100%;z-index:10;}.newmessage-textarea{flex:1;max-width:78%;}.send-button,.emoji-button{width:30px;	 height:30px;background-color:black;margin:5px;}#spinner{position:absolute;left:45%;top:40%;--paper-spinner-color:black;}</style>
+    <style>:host{height:100%;}.emj{margin:5px;display:inline-block;cursor:pointer;}.conversation-container{overflow-y:auto;overflow-x:hidden;padding:20px 20px 0px 20px;}.conversation-header{background-color:#2196F3;padding:20px 15px;color:white;font-size:1.5em;}.newmessage-container{height:20%;}.newmessage-container{box-sizing:border-box;}.newmessage-container{position:fixed;bottom:0;width:100%;z-index:10;}.newmessage-textarea{flex:1;max-width:78%;}.send-button,.emoji-button{width:30px;	 height:30px;background-color:black;margin:5px;}#spinner{position:absolute;left:45%;top:40%;--paper-spinner-color:black;}.timeline{text-align:center;border-bottom:1px solid lightgray;}</style>
 
     </dom-module>
 <dom-module id="fp-newconversation" assetpath="../fp-newconversation/">
@@ -798,19 +823,22 @@
        <template id="messagesContainer" is="dom-repeat" items="{{conversations}}" on-dom-change="_hideSpinner">
             <div class="convitem-container" on-click="_onShowConversation">
                 <paper-fab id="contact-icon" class$="{{_computeIconClass(item)}}" mini="" icon="{{_computeIcon(item)}}"></paper-fab>
-                <span class$="{{_computeContactClass(item)}}">{{item.name}}</span>
-                <fp-conversation-message class$="{{_computeConvoPeekClass(item.lastMessage)}}" message="{{item.lastMessage}}"></fp-conversation-message>
-
+                <div class="contactmessage-container">
+                    <span class$="{{_computeContactClass(item)}}">{{item.name}}</span>
+                    <fp-conversation-message class$="{{_computeConvoPeekClass(item.lastMessage)}}" message="{{item.lastMessage}}"></fp-conversation-message>                  
+                </div>
+                <p class="date-overview">{{_getOverviewDate(item.lastMessage)}}</p>
             </div>
             <div class="separator"></div>
        </template>
        <paper-spinner-lite id="spinner"></paper-spinner-lite>
         
-        <paper-icon-button id="newconvo" icon="add-circle-outline" class="create-newconversation" data-route="newconversation" role="button" title="Add conversation"></paper-icon-button>       
+       <paper-icon-button id="newconvo" icon="add-circle-outline" class="create-newconversation" data-route="newconversation" role="button" title="Add conversation">
+                     </paper-icon-button>       
 
     </template>
 
-    <style>:host{height:100%;overflow-y:auto;}.convitem-container{padding:10px 20px;cursor:pointer;position:relative;}.convitem-container .contact{position:absolute;left:80px;top:10px;font-size:large;}.user-contact{color:#009688;}.public-contact{color:black;}.convo-peek{overflow:hidden;white-space:nowrap;text-overflow:ellipsis;position:absolute;left:80px;bottom:10px;width:70%;color:#03A9F4;--owned-text-align:left;}.owned{color:#E91E63;}.separator{height:1px;background:rgba(0,0,0,0.12);right:40px;left:80px;}#contact-icon{box-shadow:none;}.public{background:black;}.user{background:#009688;}#spinner{position:absolute;left:45%;top:40%;--paper-spinner-color:black;}.create-newconversation{position:fixed;bottom:5px;right:5px;height:50px;width:50px;}</style>
+    <style>:host{height:100%;overflow-y:auto;}.convitem-container{padding:10px 20px;cursor:pointer;position:relative;display:flex;align-items:center;}.convitem-container .contact{/* position:absolute;left:80px;top:10px;*/ font-size:large;}.date-overview{align-self:flex-end;}.contactmessage-container{flex:1;}.contactmessage-container span{display:block;}.user-contact{color:#009688;}.public-contact{color:black;}.convo-peek{overflow:hidden;white-space:nowrap;text-overflow:ellipsis;/* position:absolute;left:80px;bottom:10px;*/ width:70%;color:#03A9F4;--owned-text-align:left;}.owned{color:#E91E63;}.separator{height:1px;background:rgba(0,0,0,0.12);right:40px;left:80px;}#contact-icon{box-shadow:none;margin-right:20px;}.public{background:black;}.user{background:#009688;}#spinner{position:absolute;left:45%;top:40%;--paper-spinner-color:black;}.create-newconversation{position:fixed;bottom:5px;right:5px;height:50px;width:50px;}</style>
 
         
     
@@ -880,10 +908,8 @@
                                 <iron-icon icon="account-box"></iron-icon>
                                 <span class="menu-item">Contacts</span>
                         </paper-item>
-                        <paper-item title="Open" on-click="_onOpenOpen" data-route="open">
-                                <iron-icon icon="cloud-queue"></iron-icon>
-                                <span class="menu-item">Open</span>
-                        </paper-item>                                         
+                        
+
                         <paper-item class="settings" title="Settings" on-click="_onOpenSettings" data-route="settings">
                                 <iron-icon icon="settings"></iron-icon>
                                 <span class="menu-item">Settings</span>
