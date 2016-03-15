@@ -757,18 +757,15 @@
         <style>:host{display:block;}span,input{@apply(--paper-font-body2);}.horizontal-layout{/* layout properties for a local DOM element */ @apply(--layout-horizontal);@apply(--layout-center);}.flex-vertical{@apply(--layout-vertical);height:90%;}.flexchild-vertical{@apply(--layout-flex);}.addon-icon{position:absolute;top:10px;left:50px;}</style>
         <fp-conversations-data id="dataProvider"></fp-conversations-data>
         
+        
+        <addon-moodminer-icon class="addon-icon" num="{{num}}"></addon-moodminer-icon>
         <div class="flex-vertical container">
             <div class="conversation-container flexchild-vertical">
-                
-                <addon-moodminer-icon class="addon-icon" num="{{num}}"></addon-moodminer-icon>
                 <template is="dom-repeat" items="{{messages}}" on-dom-change="_scrollToView">
-                    <template is="dom-if" if="{{item.text}}">
-                        <fp-conversation-message id="{{index}}" message="{{item}}" displaytime="">
-                        </fp-conversation-message>
-                    </template>
-                    <template is="dom-if" if="{{item.isTimestamp}}">
-                        <p class="timeline">{{item.displaydate}}</p>
-                    </template>
+                    <fp-conversation-message id="{{index}}" message="{{item}}" displaytime="">
+                    </fp-conversation-message>
+                    
+                    <p class$="{{_compDateClass(item.isTimestamp)}}">{{item.displaydate}}</p>
                 </template>
 
                 
@@ -792,7 +789,7 @@
        <addon-moodminer id="addonMoodminer"></addon-moodminer>
     </template>
 
-    <style>:host{height:100%;}.emj{margin:5px;display:inline-block;cursor:pointer;}.conversation-container{overflow-y:auto;overflow-x:hidden;padding:20px 20px 0px 20px;}.conversation-header{background-color:#2196F3;padding:20px 15px;color:white;font-size:1.5em;}.newmessage-container{height:20%;}.newmessage-container{box-sizing:border-box;}.newmessage-container{position:fixed;bottom:0;width:100%;z-index:10;}.newmessage-textarea{flex:1;max-width:78%;}.send-button,.emoji-button{width:30px;	 height:30px;background-color:black;margin:5px;}#spinner{position:absolute;left:45%;top:40%;--paper-spinner-color:black;}.timeline{text-align:center;border-bottom:1px solid lightgray;}</style>
+    <style>:host{height:100%;}.emj{margin:5px;display:inline-block;cursor:pointer;}.conversation-container{overflow-y:auto;overflow-x:hidden;padding:20px 20px 0px 20px;}.conversation-header{background-color:#2196F3;padding:20px 15px;color:white;font-size:1.5em;}.newmessage-container{height:20%;}.newmessage-container{box-sizing:border-box;}.newmessage-container{position:fixed;bottom:0;width:100%;z-index:10;}.newmessage-textarea{flex:1;max-width:78%;}.send-button,.emoji-button{width:30px;	 height:30px;background-color:black;margin:5px;}#spinner{position:absolute;left:45%;top:40%;--paper-spinner-color:black;}.timeline{text-align:center;border-bottom:1px solid lightgray;}.is-hidden{display:none;}</style>
 
     </dom-module>
 <dom-module id="fp-newconversation" assetpath="../fp-newconversation/">
