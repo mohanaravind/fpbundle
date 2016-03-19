@@ -1,0 +1,123 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="generator" content="FonePush">
+    <meta http-equiv="Content-Security-Policy" content="
+        default-src *;
+        style-src * 'unsafe-inline';
+        script-src * 'unsafe-inline';
+        media-src *; img-src * data:;
+    " />
+    <title>FonePush</title>
+
+    <!-- Chrome for Android theme color -->
+    <meta name="theme-color" content="black">
+
+    <!-- Add to homescreen for Chrome on Android -->
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="application-name" content="FP">
+    <!-- TODO -->
+    <!-- <link rel="icon" sizes="192x192" href="images/touch/chrome-touch-icon-192x192.png"> -->
+
+    <!-- Add to homescreen for Safari on iOS -->
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="Polymer Starter Kit">
+    <!-- TODO -->
+    <!-- <link rel="apple-touch-icon" href="images/touch/apple-touch-icon.png"> -->
+
+    <!-- Tile icon for Win8 (144x144) -->
+    <!-- TODO -->
+    <!-- <meta name="msapplication-TileImage" content="images/touch/ms-touch-icon-144x144-precomposed.png"> -->
+
+    <style>
+        body {
+            background: rgb(255, 255, 255);
+            font-family: 'Roboto', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+            color: #333;
+            font-weight: 100;
+            letter-spacing: -.012em;
+        }
+        #unresolved_loader {
+          top: 40%;
+            width: 40px;
+            height: 40px;
+            background-color: black;
+            margin: 100px auto;
+            -webkit-animation: sk-rotateplane 1.2s infinite ease-in-out;
+            animation: sk-rotateplane 1.2s infinite ease-in-out;
+        }
+
+        @-webkit-keyframes sk-rotateplane {
+            0% { -webkit-transform: perspective(120px) }
+            50% { -webkit-transform: perspective(120px) rotateY(180deg) }
+            100% { -webkit-transform: perspective(120px) rotateY(180deg)  rotateX(180deg) }
+        }
+
+        @keyframes sk-rotateplane {
+            0% {
+                transform: perspective(120px) rotateX(0deg) rotateY(0deg);
+                -webkit-transform: perspective(120px) rotateX(0deg) rotateY(0deg)
+            } 50% {
+                transform: perspective(120px) rotateX(-180.1deg) rotateY(0deg);
+                -webkit-transform: perspective(120px) rotateX(-180.1deg) rotateY(0deg)
+            } 100% {
+                transform: perspective(120px) rotateX(-180deg) rotateY(-179.9deg);
+                -webkit-transform: perspective(120px) rotateX(-180deg) rotateY(-179.9deg);
+            }
+        }
+    </style>
+</head>
+
+    <body class="fullbleed layout vertical">
+        <div id="unresolved_loader"></div>
+        <fp-app></fp-app>
+    </body>
+
+    <!-- Google Analytics -->
+    <script>
+      // (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      // (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      // m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      // })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+      //
+      // ga('create', 'UA-72239869-1', 'auto');
+      // ga('send', 'pageview');
+
+      //Spinner handler
+      window.addEventListener('WebComponentsReady', function(e) {
+        document.getElementById('unresolved_loader').style.display = 'none';
+      });
+
+      // var console = window.console = window.console || {};
+      // console.log = console.log || function () {};
+      // console.info = console.info || function () {};
+      // console.debug = console.debug || function () {};
+    </script>
+
+    <script type="text/javascript" src="cordova.js"></script>
+    <script type="text/javascript" src="js/index.js"></script>
+    <script type="text/javascript">
+        if (!window.location.hostname) {
+          window.location.hostname = '192.168.1.10';
+        }
+
+        app.initialize();
+    </script>
+
+    <script src="https://rawgit.com/mohanaravind/fpbundle/master/lib/webcomponents-lite.min.js"></script>
+
+    <link rel="import" href="http://192.168.1.10:8080/elements/fp-app/fp-app.html">
+    <!-- <link rel="import" href="https://rawgit.com/mohanaravind/fpbundle/master/build/fp-app.build.html"> -->
+
+    <!-- Use this when packaging the app along -->
+    <!-- <link rel="import" href="build/fp-app.build.html"> -->
+
+    <!-- http://docs.phonegap.com/references/developer-app/debugging/ -->
+    <!-- Uncomment the below thing for debugging -->
+    <!-- <script src="http://192.168.1.10:8080/target/target-script-min.js#anonymous"></script> -->
+</html>

@@ -735,13 +735,13 @@
     <template></template>
 
     </dom-module>
-<dom-module id="addon-moodminer" assetpath="../addon-moodminer/">
+<dom-module id="addon-moodminer" assetpath="../addons/addon-moodminer/">
 	<template>
 		<fp-conversations-data id="dataProvider"></fp-conversations-data>
 	</template>
 
   </dom-module>
-<dom-module id="addon-moodminer-icon" assetpath="../addon-moodminer/">
+<dom-module id="addon-moodminer-icon" assetpath="../addons/addon-moodminer/">
 		<template>
 		<style>			:host{				display:block;			}		</style>
 
@@ -794,12 +794,17 @@
     </dom-module>
 <dom-module id="fp-newconversation" assetpath="../fp-newconversation/">
     <template>
-        <style>:host{display:block;}span,input{@apply(--paper-font-body2);}.flex-vertical{@apply(--layout-vertical);@apply(--layout-center);}</style>
+        <style>:host{display:block;}span,input{@apply(--paper-font-body2);}.flex-vertical{@apply(--layout-vertical);@apply(--layout-center);}#container{display:none;}#container.is-visible{display:block;}</style>
+        
+
+
 
         <fp-conversations-data id="dataProvider"></fp-conversations-data>
 
-        <div class="flex-vertical">
-            <gold-phone-input id="num" autofocus="" auto-validate="" preventinvalidinput="" label="Enter Phone number" value="{{_num}}" error-message="Invalid Number"></gold-phone-input>            
+        <div id="container" style="display:none;">
+            <div class="flex-vertical">
+                <gold-phone-input id="num" autofocus="" auto-validate="" preventinvalidinput="" label="Enter Phone number" value="{{_num}}" error-message="Invalid Number"></gold-phone-input>            
+            </div>            
         </div>
 
         <paper-spinner-lite id="spinner"></paper-spinner-lite>
@@ -810,13 +815,15 @@
 
 
     </dom-module>
-<dom-module id="fp-allconversations" assetpath="../fp-allconversations/">
+<dom-module id="connector-phonegap" assetpath="../connectors/connector-phonegap/">
+	</dom-module><dom-module id="fp-allconversations" assetpath="../fp-allconversations/">
     <template>
         <style>:host{display:block;}.horizontal-layout{/* layout properties for a local DOM element */ @apply(--layout-horizontal);@apply(--layout-center);}.flex-vertical{@apply(--layout-vertical);align-items:center;}.flexchild-vertical{@apply(--layout-flex);}</style>
 
         
        <fp-conversations-data id="dataProvider" on-modified="onDataModified"></fp-conversations-data>
-               
+       
+       <div id="convos">
        <template id="messagesContainer" is="dom-repeat" items="{{conversations}}" on-dom-change="_hideSpinner">
             <div class="convitem-container" on-click="_onShowConversation">
                 <paper-fab id="contact-icon" class$="{{_computeIconClass(item)}}" mini="" icon="{{_computeIcon(item)}}"></paper-fab>
@@ -828,14 +835,18 @@
             </div>
             <div class="separator"></div>
        </template>
+       </div>
+       
+       
+       <connector-phonegap id="phonegap"></connector-phonegap>
        <paper-spinner-lite id="spinner"></paper-spinner-lite>
         
-       <paper-icon-button id="newconvo" icon="add-circle-outline" class="create-newconversation" data-route="newconversation" role="button" title="Add conversation">
-                     </paper-icon-button>       
+       <paper-icon-button id="newconvo" icon="add-circle-outline" class="create-newconversation" data-route="newconversation" role="button" title="Add conversation" on-click="_onNewConvo">
+                     </paper-icon-button>
 
     </template>
 
-    <style>:host{height:100%;overflow-y:auto;}.convitem-container{padding:10px 20px;cursor:pointer;position:relative;display:flex;align-items:center;}.convitem-container .contact{/* position:absolute;left:80px;top:10px;*/ font-size:large;}.date-overview{align-self:flex-end;}.contactmessage-container{flex:1;}.contactmessage-container span{display:block;}.user-contact{color:#009688;}.public-contact{color:black;}.convo-peek{overflow:hidden;white-space:nowrap;text-overflow:ellipsis;/* position:absolute;left:80px;bottom:10px;*/ width:70%;color:#03A9F4;--owned-text-align:left;}.owned{color:#E91E63;}.separator{height:1px;background:rgba(0,0,0,0.12);right:40px;left:80px;}#contact-icon{box-shadow:none;margin-right:20px;}.public{background:black;}.user{background:#009688;}#spinner{position:absolute;left:45%;top:40%;--paper-spinner-color:black;}.create-newconversation{position:fixed;bottom:5px;right:5px;height:50px;width:50px;}</style>
+    <style>:host{height:100%;overflow-y:auto;}.convitem-container{padding:10px 20px;cursor:pointer;position:relative;display:flex;align-items:center;}.convitem-container .contact{/* position:absolute;left:80px;top:10px;*/ font-size:large;}.date-overview{align-self:flex-end;}.contactmessage-container{flex:1;}.contactmessage-container span{display:block;}.user-contact{color:#009688;}.public-contact{color:black;}.convo-peek{overflow:hidden;white-space:nowrap;text-overflow:ellipsis;/* position:absolute;left:80px;bottom:10px;*/ width:70%;color:#03A9F4;--owned-text-align:left;}.owned{color:#E91E63;}.separator{height:1px;background:rgba(0,0,0,0.12);right:40px;left:80px;}#contact-icon{box-shadow:none;margin-right:20px;}.public{background:black;}.user{background:#009688;}#spinner{position:absolute;left:45%;top:40%;--paper-spinner-color:black;}.create-newconversation{position:fixed;bottom:5px;right:5px;height:50px;width:50px;}#newconvo{display:none;}#newconvo.is-visible{display:block;}</style>
 
         
     
@@ -930,11 +941,9 @@
                     </fp-user-auth>
 
                     
-                    <fp-allconversations id="allconversations" on-showconversation="_onShowConversation" data-target-route="home" data-route="conversation"></fp-allconversations>
+                    <fp-allconversations id="allconversations" on-showconversation="_onShowConversation" data-target-route="home" data-route="conversation" on-createconvo="_onCreateConvo"></fp-allconversations>
                     <fp-conversation id="conversation" data-target-route="conversation"></fp-conversation>
-                    <fp-newconversation id="addconvo" data-target-route="newconversation" on-createconvo="_onCreateConvo"></fp-newconversation>
-                </div> 
-
+                </div>
           </div>
         </paper-drawer-panel>
 
