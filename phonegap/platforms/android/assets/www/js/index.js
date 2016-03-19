@@ -36,49 +36,6 @@ var app = {
     // function, we must explicitly call 'app.receivedEvent(...);'
     onDeviceReady: function() {
         app.receivedEvent('deviceready');
-        //
-        // document.addEventListener("resume", onResume, false);
-        //
-        // var diagnostic = cordova.plugins.diagnostic;
-        //
-        // function requestPermissions () {
-        //   var onSuccess = function (status) {
-        //     console.log(status);
-        //   };
-        //
-        //   var onError = function (error) {
-        //     console.log(error);
-        //   };
-        //
-        //   diagnostic.requestRuntimePermission(onSuccess, onError, diagnostic.runtimePermission.READ_CONTACTS);
-        // }
-        //
-        // document.getElementById('pick').addEventListener('click', function () {
-        //   diagnostic.getPermissionAuthorizationStatus(function(status){
-        //       switch(status){
-        //           case cordova.plugins.diagnostic.runtimePermissionStatus.GRANTED:
-        //               console.log("Permission granted to use the camera");
-        //
-        //               navigator.contacts.pickContact(onResume, onResume);
-        //               break;
-        //           case cordova.plugins.diagnostic.runtimePermissionStatus.NOT_REQUESTED:
-        //               console.log("Permission to use the camera has not been requested yet");
-        //
-        //               requestPermissions();
-        //               break;
-        //           case cordova.plugins.diagnostic.runtimePermissionStatus.DENIED:
-        //               console.log("Permission denied to use the camera - ask again?");
-        //               break;
-        //           case cordova.plugins.diagnostic.runtimePermissionStatus.DENIED_ALWAYS:
-        //               console.log("Permission permanently denied to use the camera - guess we won't be using it then!");
-        //               break;
-        //       }
-        //   }, function(error){
-        //       console.error("The following error occurred: "+error);
-        //   }, diagnostic.runtimePermission.READ_CONTACTS);
-
-          // navigator.contacts.pickContact(onResume, onResume);
-        // });
     },
     // Update DOM on a Received Event
     receivedEvent: function(id) {

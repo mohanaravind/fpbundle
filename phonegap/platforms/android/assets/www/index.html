@@ -78,31 +78,20 @@
         <fp-app></fp-app>
     </body>
 
-    <!-- Google Analytics -->
     <script>
-      // (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-      // (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-      // m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-      // })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-      //
-      // ga('create', 'UA-72239869-1', 'auto');
-      // ga('send', 'pageview');
+      //TODO: Google analytics for native apps
 
       //Spinner handler
       window.addEventListener('WebComponentsReady', function(e) {
         document.getElementById('unresolved_loader').style.display = 'none';
       });
-
-      // var console = window.console = window.console || {};
-      // console.log = console.log || function () {};
-      // console.info = console.info || function () {};
-      // console.debug = console.debug || function () {};
     </script>
 
     <script type="text/javascript" src="cordova.js"></script>
     <script type="text/javascript" src="js/index.js"></script>
     <script type="text/javascript">
         if (!window.location.hostname) {
+          //FP-Debug: Step: 1 Set your local ip
           window.location.hostname = '192.168.1.10';
         }
 
@@ -111,8 +100,11 @@
 
     <script src="https://rawgit.com/mohanaravind/fpbundle/master/lib/webcomponents-lite.min.js"></script>
 
-    <link rel="import" href="http://192.168.1.10:8080/elements/fp-app/fp-app.html">
-    <!-- <link rel="import" href="https://rawgit.com/mohanaravind/fpbundle/master/build/fp-app.build.html"> -->
+    <!-- FP-Debug: Step: 2 - Set your local ip -->
+    <!-- <link rel="import" href="http://192.168.1.10:8080/elements/fp-app/fp-app.html"> -->
+
+    <!-- FP-Debug: Step: 3 - Comment the below code -->
+    <link rel="import" href="https://rawgit.com/mohanaravind/fpbundle/master/build/fp-app.build.html">
 
     <!-- Use this when packaging the app along -->
     <!-- <link rel="import" href="build/fp-app.build.html"> -->
