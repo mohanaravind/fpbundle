@@ -15,6 +15,9 @@
         },
         "cordova.plugins.diagnostic": {
             "PACKAGE_NAME": "com.phonegap.fonepush"
+        },
+        "cordova-plugin-sim": {
+            "PACKAGE_NAME": "com.phonegap.fonepush"
         }
     },
     "dependent_plugins": {}
