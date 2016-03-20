@@ -4,7 +4,12 @@
 <head>
     <meta charset="utf-8">
     <meta name="description" content="">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="format-detection" content="telephone=no" />
+    <meta name="msapplication-tap-highlight" content="no" />
+    <meta name="viewport" content="user-scalable=no, initial-scale=1,
+                                    maximum-scale=1, minimum-scale=1,
+                                    width=device-width, height=device-height,
+                                    target-densitydpi=device-dpi" />
     <meta name="generator" content="FonePush">
     <meta http-equiv="Content-Security-Policy" content="
         default-src *;
@@ -42,6 +47,11 @@
             font-weight: 100;
             letter-spacing: -.012em;
         }
+
+        * {
+            -webkit-tap-highlight-color: rgba(0,0,0,0); /* make transparent link selection, adjust last value opacity 0 to 1.0 */
+        }
+        
         #unresolved_loader {
           top: 40%;
             width: 40px;
@@ -73,7 +83,7 @@
     </style>
 </head>
 
-    <body class="fullbleed layout vertical">
+    <body class="fullbleed layout vertical app">
         <div id="unresolved_loader"></div>
         <fp-app></fp-app>
     </body>

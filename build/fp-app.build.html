@@ -905,11 +905,11 @@
               <paper-scroll-header-panel drawer="" fixed="">
 
                 
-                <paper-toolbar id="drawerToolbar" class="{{enableToolbar(accessInfo)}}">                        
+                <paper-toolbar id="drawerToolbar" class="{{enableToolbar(accessInfo)}}">
                         <paper-item title="Sign out" on-click="_onSignout" data-route="signout">
                                 <iron-icon icon="account-circle" class="signout"></iron-icon>
                                 <span>Sign out {{accessInfo.name}}</span>
-                        </paper-item>                  
+                        </paper-item>
                 </paper-toolbar>
                 <paper-menu class="dropdown-content" selected="0">
                         <paper-item class="contacts" title="Contacts" data-route="contacts">
@@ -922,20 +922,20 @@
                                 <iron-icon icon="settings"></iron-icon>
                                 <span class="menu-item">Settings</span>
                         </paper-item>
-                </paper-menu>                
-              </paper-scroll-header-panel>                 
+                </paper-menu>
+              </paper-scroll-header-panel>
           <div main="">
                 <div class="toolbar">
                         <paper-icon-button id="menu" icon="menu" class$="{{enableMenu(accessInfo, heading)}}" paper-drawer-toggle=""></paper-icon-button>
                         <paper-icon-button icon="arrow-back" class$="{{enableBack(heading)}}" data-route="home"></paper-icon-button>
                         <header class="flexchild-grow">{{heading}}</header>
-                </div> 
+                </div>
 
                 
                 <fp-conversations-data id="dataprovider"></fp-conversations-data>
 
                 
-                <div id="mainContent" class="main-content">               
+                <div id="mainContent" class="main-content">
                     
                     <fp-user-auth id="userauth" on-authorize="_onAuthorize" class="is-active" data-target-route="userauth" access-info="{{accessInfo}}">
                     </fp-user-auth>
@@ -954,10 +954,10 @@
                 <span>How do you want to be called?</span>
                 <paper-input id="name" autofocus="" label="Enter your name" type="text" required="" error-message="Invalid name!"></paper-input>
                 <paper-fab class="nameforward" mini="" icon="arrow-forward" title="Continue" on-click="_onNameSave"></paper-fab>
-        </paper-dialog>        
+        </paper-dialog>
     </template>
 
-    <style>body{background:#fafafa;font-family:'Roboto','Helvetica Neue',Helvetica,Arial,sans-serif;color:#333;}/* @font-face{font-family:"EmojiSymbols";src:url('../../lib/EmojiSymbols-Regular.woff') format('woff');text-decoration:none;font-style:normal;}*/ .toolbar{display:flex;align-items:center;width:100%;height:40px;text-align:center;padding:0;}.toolbar .create-newconversation,.toolbar .go-back{display:none;}.create-newconversation{position:fixed;bottom:5px;right:5px;height:50px;width:50px;}.toolbar .create-newconversation.is-enabled,.toolbar .go-back.is-enabled{display:inline-block;}.flexchild-grow{flex-grow:1;}.toolbar-icons{align-self:flex-end;}.fixed-header{height:64px;position:fixed;width:100%;z-index:1;background:rgba(3,3,3,0);color:#212121;}header{font-size:larger;font-weight:400;}.main-content{height:calc(100vh - 70px);}.main-content .is-active{display:block;}.main-content *{display:none;}.nameforward{float:right;margin-right:10px;background-color:black;}.iconchecked{margin-left:10px;margin-bottom:5px;}.is-hidden{display:none;}.menu-item{margin-left:20px;cursor:pointer;}.menu-name{color:white;margin-right:20px;}#drawerToolbar{background-color:white;	 border-bottom:thin solid #C7C7C7;cursor:pointer;}</style>
+    <style>body{background:#fafafa;font-family:'Roboto','Helvetica Neue',Helvetica,Arial,sans-serif;color:#333;}/* @font-face{font-family:"EmojiSymbols";src:url('../../lib/EmojiSymbols-Regular.woff') format('woff');text-decoration:none;font-style:normal;}*/ .toolbar{display:flex;align-items:center;width:100%;height:40px;text-align:center;padding:0;}.toolbar .create-newconversation,.toolbar .go-back{display:none;}.create-newconversation{position:fixed;bottom:5px;right:5px;height:50px;width:50px;}.toolbar .create-newconversation.is-enabled,.toolbar .go-back.is-enabled{display:inline-block;}.flexchild-grow{flex-grow:1;}.toolbar-icons{align-self:flex-end;}.fixed-header{height:64px;position:fixed;width:100%;z-index:1;background:rgba(3,3,3,0);color:#212121;}header{}.main-content{height:calc(100vh - 70px);}.main-content .is-active{display:block;}.main-content *{display:none;}.nameforward{float:right;margin-right:10px;background-color:black;}.iconchecked{margin-left:10px;margin-bottom:5px;}.is-hidden{display:none;}.menu-item{margin-left:20px;cursor:pointer;}.menu-name{color:white;margin-right:20px;}#drawerToolbar{background-color:white;	 border-bottom:thin solid #C7C7C7;cursor:pointer;}</style>
 
     </dom-module>
 </body></html>
