@@ -1,0 +1,118 @@
+-- Merging decision tree log ---
+manifest
+ADDED from C:\Users\mohan_000\Documents\Work\_\fpbundle\phonegap\platforms\android\AndroidManifest.xml:2:1-18:12
+	android:hardwareAccelerated
+		ADDED from C:\Users\mohan_000\Documents\Work\_\fpbundle\phonegap\platforms\android\AndroidManifest.xml:2:11-45
+	xmlns:android
+		ADDED from C:\Users\mohan_000\Documents\Work\_\fpbundle\phonegap\platforms\android\AndroidManifest.xml:2:134-192
+	package
+		ADDED from C:\Users\mohan_000\Documents\Work\_\fpbundle\phonegap\platforms\android\AndroidManifest.xml:2:102-133
+		INJECTED from C:\Users\mohan_000\Documents\Work\_\fpbundle\phonegap\platforms\android\AndroidManifest.xml
+		INJECTED from C:\Users\mohan_000\Documents\Work\_\fpbundle\phonegap\platforms\android\AndroidManifest.xml
+	android:versionName
+		ADDED from C:\Users\mohan_000\Documents\Work\_\fpbundle\phonegap\platforms\android\AndroidManifest.xml:2:74-101
+		INJECTED from C:\Users\mohan_000\Documents\Work\_\fpbundle\phonegap\platforms\android\AndroidManifest.xml
+		INJECTED from C:\Users\mohan_000\Documents\Work\_\fpbundle\phonegap\platforms\android\AndroidManifest.xml
+	android:versionCode
+		ADDED from C:\Users\mohan_000\Documents\Work\_\fpbundle\phonegap\platforms\android\AndroidManifest.xml:2:46-73
+		INJECTED from C:\Users\mohan_000\Documents\Work\_\fpbundle\phonegap\platforms\android\AndroidManifest.xml
+		INJECTED from C:\Users\mohan_000\Documents\Work\_\fpbundle\phonegap\platforms\android\AndroidManifest.xml
+supports-screens
+ADDED from C:\Users\mohan_000\Documents\Work\_\fpbundle\phonegap\platforms\android\AndroidManifest.xml:3:5-191
+	android:resizeable
+		ADDED from C:\Users\mohan_000\Documents\Work\_\fpbundle\phonegap\platforms\android\AndroidManifest.xml:3:106-131
+	android:largeScreens
+		ADDED from C:\Users\mohan_000\Documents\Work\_\fpbundle\phonegap\platforms\android\AndroidManifest.xml:3:49-76
+	android:anyDensity
+		ADDED from C:\Users\mohan_000\Documents\Work\_\fpbundle\phonegap\platforms\android\AndroidManifest.xml:3:23-48
+	android:normalScreens
+		ADDED from C:\Users\mohan_000\Documents\Work\_\fpbundle\phonegap\platforms\android\AndroidManifest.xml:3:77-105
+	android:xlargeScreens
+		ADDED from C:\Users\mohan_000\Documents\Work\_\fpbundle\phonegap\platforms\android\AndroidManifest.xml:3:160-188
+	android:smallScreens
+		ADDED from C:\Users\mohan_000\Documents\Work\_\fpbundle\phonegap\platforms\android\AndroidManifest.xml:3:132-159
+uses-permission#android.permission.INTERNET
+ADDED from C:\Users\mohan_000\Documents\Work\_\fpbundle\phonegap\platforms\android\AndroidManifest.xml:4:5-67
+	android:name
+		ADDED from C:\Users\mohan_000\Documents\Work\_\fpbundle\phonegap\platforms\android\AndroidManifest.xml:4:22-64
+application
+ADDED from C:\Users\mohan_000\Documents\Work\_\fpbundle\phonegap\platforms\android\AndroidManifest.xml:5:5-12:19
+MERGED from [com.android.support:support-v4:24.0.0-alpha1] C:\Users\mohan_000\Documents\Work\_\fpbundle\phonegap\platforms\android\build\intermediates\exploded-aar\com.android.support\support-v4\24.0.0-alpha1\AndroidManifest.xml:22:5-20
+MERGED from [com.android.support:appcompat-v7:23.2.1] C:\Users\mohan_000\Documents\Work\_\fpbundle\phonegap\platforms\android\build\intermediates\exploded-aar\com.android.support\appcompat-v7\23.2.1\AndroidManifest.xml:25:5-20
+MERGED from [com.android.support:support-v4:24.0.0-alpha1] C:\Users\mohan_000\Documents\Work\_\fpbundle\phonegap\platforms\android\build\intermediates\exploded-aar\com.android.support\support-v4\24.0.0-alpha1\AndroidManifest.xml:22:5-20
+MERGED from [com.android.support:animated-vector-drawable:23.2.1] C:\Users\mohan_000\Documents\Work\_\fpbundle\phonegap\platforms\android\build\intermediates\exploded-aar\com.android.support\animated-vector-drawable\23.2.1\AndroidManifest.xml:7:5-20
+MERGED from [com.android.support:support-vector-drawable:23.2.1] C:\Users\mohan_000\Documents\Work\_\fpbundle\phonegap\platforms\android\build\intermediates\exploded-aar\com.android.support\support-vector-drawable\23.2.1\AndroidManifest.xml:7:5-20
+MERGED from [com.android.support:support-v4:24.0.0-alpha1] C:\Users\mohan_000\Documents\Work\_\fpbundle\phonegap\platforms\android\build\intermediates\exploded-aar\com.android.support\support-v4\24.0.0-alpha1\AndroidManifest.xml:22:5-20
+MERGED from [com.android.support:support-vector-drawable:23.2.1] C:\Users\mohan_000\Documents\Work\_\fpbundle\phonegap\platforms\android\build\intermediates\exploded-aar\com.android.support\support-vector-drawable\23.2.1\AndroidManifest.xml:7:5-20
+MERGED from [com.android.support:support-v4:24.0.0-alpha1] C:\Users\mohan_000\Documents\Work\_\fpbundle\phonegap\platforms\android\build\intermediates\exploded-aar\com.android.support\support-v4\24.0.0-alpha1\AndroidManifest.xml:22:5-20
+MERGED from [com.android.support:support-v4:24.0.0-alpha1] C:\Users\mohan_000\Documents\Work\_\fpbundle\phonegap\platforms\android\build\intermediates\exploded-aar\com.android.support\support-v4\24.0.0-alpha1\AndroidManifest.xml:22:5-20
+	android:supportsRtl
+		ADDED from C:\Users\mohan_000\Documents\Work\_\fpbundle\phonegap\platforms\android\AndroidManifest.xml:5:116-142
+	android:label
+		ADDED from C:\Users\mohan_000\Documents\Work\_\fpbundle\phonegap\platforms\android\AndroidManifest.xml:5:83-115
+	android:icon
+		ADDED from C:\Users\mohan_000\Documents\Work\_\fpbundle\phonegap\platforms\android\AndroidManifest.xml:5:53-82
+	android:hardwareAccelerated
+		ADDED from C:\Users\mohan_000\Documents\Work\_\fpbundle\phonegap\platforms\android\AndroidManifest.xml:5:18-52
+activity#com.phonegap.fonepush.MainActivity
+ADDED from C:\Users\mohan_000\Documents\Work\_\fpbundle\phonegap\platforms\android\AndroidManifest.xml:6:9-11:20
+	android:windowSoftInputMode
+		ADDED from C:\Users\mohan_000\Documents\Work\_\fpbundle\phonegap\platforms\android\AndroidManifest.xml:6:294-336
+	android:screenOrientation
+		ADDED from C:\Users\mohan_000\Documents\Work\_\fpbundle\phonegap\platforms\android\AndroidManifest.xml:6:194-230
+	android:label
+		ADDED from C:\Users\mohan_000\Documents\Work\_\fpbundle\phonegap\platforms\android\AndroidManifest.xml:6:97-134
+	android:configChanges
+		ADDED from C:\Users\mohan_000\Documents\Work\_\fpbundle\phonegap\platforms\android\AndroidManifest.xml:6:19-96
+	android:theme
+		ADDED from C:\Users\mohan_000\Documents\Work\_\fpbundle\phonegap\platforms\android\AndroidManifest.xml:6:231-293
+	android:name
+		ADDED from C:\Users\mohan_000\Documents\Work\_\fpbundle\phonegap\platforms\android\AndroidManifest.xml:6:166-193
+	android:launchMode
+		ADDED from C:\Users\mohan_000\Documents\Work\_\fpbundle\phonegap\platforms\android\AndroidManifest.xml:6:135-165
+intent-filter#android.intent.action.MAIN+android.intent.category.LAUNCHER
+ADDED from C:\Users\mohan_000\Documents\Work\_\fpbundle\phonegap\platforms\android\AndroidManifest.xml:7:13-10:29
+	android:label
+		ADDED from C:\Users\mohan_000\Documents\Work\_\fpbundle\phonegap\platforms\android\AndroidManifest.xml:7:28-65
+action#android.intent.action.MAIN
+ADDED from C:\Users\mohan_000\Documents\Work\_\fpbundle\phonegap\platforms\android\AndroidManifest.xml:8:17-69
+	android:name
+		ADDED from C:\Users\mohan_000\Documents\Work\_\fpbundle\phonegap\platforms\android\AndroidManifest.xml:8:25-66
+category#android.intent.category.LAUNCHER
+ADDED from C:\Users\mohan_000\Documents\Work\_\fpbundle\phonegap\platforms\android\AndroidManifest.xml:9:17-77
+	android:name
+		ADDED from C:\Users\mohan_000\Documents\Work\_\fpbundle\phonegap\platforms\android\AndroidManifest.xml:9:27-74
+uses-sdk
+ADDED from C:\Users\mohan_000\Documents\Work\_\fpbundle\phonegap\platforms\android\AndroidManifest.xml:13:5-74
+MERGED from [com.android.support:support-v4:24.0.0-alpha1] C:\Users\mohan_000\Documents\Work\_\fpbundle\phonegap\platforms\android\build\intermediates\exploded-aar\com.android.support\support-v4\24.0.0-alpha1\AndroidManifest.xml:20:5-43
+MERGED from [com.android.support:appcompat-v7:23.2.1] C:\Users\mohan_000\Documents\Work\_\fpbundle\phonegap\platforms\android\build\intermediates\exploded-aar\com.android.support\appcompat-v7\23.2.1\AndroidManifest.xml:21:5-23:78
+MERGED from [com.android.support:support-v4:24.0.0-alpha1] C:\Users\mohan_000\Documents\Work\_\fpbundle\phonegap\platforms\android\build\intermediates\exploded-aar\com.android.support\support-v4\24.0.0-alpha1\AndroidManifest.xml:20:5-43
+MERGED from [com.android.support:animated-vector-drawable:23.2.1] C:\Users\mohan_000\Documents\Work\_\fpbundle\phonegap\platforms\android\build\intermediates\exploded-aar\com.android.support\animated-vector-drawable\23.2.1\AndroidManifest.xml:5:5-44
+MERGED from [com.android.support:support-vector-drawable:23.2.1] C:\Users\mohan_000\Documents\Work\_\fpbundle\phonegap\platforms\android\build\intermediates\exploded-aar\com.android.support\support-vector-drawable\23.2.1\AndroidManifest.xml:5:5-43
+MERGED from [com.android.support:support-v4:24.0.0-alpha1] C:\Users\mohan_000\Documents\Work\_\fpbundle\phonegap\platforms\android\build\intermediates\exploded-aar\com.android.support\support-v4\24.0.0-alpha1\AndroidManifest.xml:20:5-43
+MERGED from [com.android.support:support-vector-drawable:23.2.1] C:\Users\mohan_000\Documents\Work\_\fpbundle\phonegap\platforms\android\build\intermediates\exploded-aar\com.android.support\support-vector-drawable\23.2.1\AndroidManifest.xml:5:5-43
+MERGED from [com.android.support:support-v4:24.0.0-alpha1] C:\Users\mohan_000\Documents\Work\_\fpbundle\phonegap\platforms\android\build\intermediates\exploded-aar\com.android.support\support-v4\24.0.0-alpha1\AndroidManifest.xml:20:5-43
+MERGED from [com.android.support:support-v4:24.0.0-alpha1] C:\Users\mohan_000\Documents\Work\_\fpbundle\phonegap\platforms\android\build\intermediates\exploded-aar\com.android.support\support-v4\24.0.0-alpha1\AndroidManifest.xml:20:5-43
+MERGED from [android:CordovaLib:unspecified:debug] C:\Users\mohan_000\Documents\Work\_\fpbundle\phonegap\platforms\android\build\intermediates\exploded-aar\android\CordovaLib\unspecified\debug\AndroidManifest.xml:25:5-44
+	android:targetSdkVersion
+		ADDED from C:\Users\mohan_000\Documents\Work\_\fpbundle\phonegap\platforms\android\AndroidManifest.xml:13:42-71
+	android:minSdkVersion
+		ADDED from C:\Users\mohan_000\Documents\Work\_\fpbundle\phonegap\platforms\android\AndroidManifest.xml:13:15-41
+	tools:overrideLibrary
+		ADDED from [com.android.support:appcompat-v7:23.2.1] C:\Users\mohan_000\Documents\Work\_\fpbundle\phonegap\platforms\android\build\intermediates\exploded-aar\com.android.support\appcompat-v7\23.2.1\AndroidManifest.xml:23:9-75
+uses-permission#android.permission.READ_CONTACTS
+ADDED from C:\Users\mohan_000\Documents\Work\_\fpbundle\phonegap\platforms\android\AndroidManifest.xml:14:5-72
+	android:name
+		ADDED from C:\Users\mohan_000\Documents\Work\_\fpbundle\phonegap\platforms\android\AndroidManifest.xml:14:22-69
+uses-permission#android.permission.WRITE_CONTACTS
+ADDED from C:\Users\mohan_000\Documents\Work\_\fpbundle\phonegap\platforms\android\AndroidManifest.xml:15:5-73
+	android:name
+		ADDED from C:\Users\mohan_000\Documents\Work\_\fpbundle\phonegap\platforms\android\AndroidManifest.xml:15:22-70
+uses-permission#android.permission.GET_ACCOUNTS
+ADDED from C:\Users\mohan_000\Documents\Work\_\fpbundle\phonegap\platforms\android\AndroidManifest.xml:16:5-71
+	android:name
+		ADDED from C:\Users\mohan_000\Documents\Work\_\fpbundle\phonegap\platforms\android\AndroidManifest.xml:16:22-68
+uses-permission#android.permission.READ_PHONE_STATE
+ADDED from C:\Users\mohan_000\Documents\Work\_\fpbundle\phonegap\platforms\android\AndroidManifest.xml:17:5-75
+	android:name
+		ADDED from C:\Users\mohan_000\Documents\Work\_\fpbundle\phonegap\platforms\android\AndroidManifest.xml:17:22-72
