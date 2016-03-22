@@ -859,16 +859,21 @@
 
 <dom-module id="fp-user-auth" assetpath="../fp-user-auth/">
   <template>
-    <style>.center{display:flex;justify-content:space-around;}#code{text-align:center;}#spinner{--paper-spinner-color:black;position:absolute;top:2px;right:2px;}#remember{margin-bottom:10px;}</style>
+    <style>.center{display:flex;justify-content:space-around;}#code{text-align:center;}#spinner{--paper-spinner-color:black;position:absolute;top:2px;right:2px;}#remember{margin-bottom:10px;}.is-hidden{display:none;}</style>
 
      
     <fp-conversations-data id="dataprovider"></fp-conversations-data>
+
+    
+    <connector-phonegap id="phonegap"></connector-phonegap>
 
     <div class="center">
       
       <gold-phone-input id="num" auto-validate="" prevent-invalid-input="" autofocus="" value="{{_num}}" label="Enter Phone number">
                         </gold-phone-input>
+                        <paper-spinner-lite id="mainSpinner"></paper-spinner-lite>
     </div>
+    
 
     <paper-dialog id="dialog" modal="">
       <h2>Verification</h2>
@@ -882,16 +887,19 @@
   </dom-module>
 <dom-module id="fp-settings" assetpath="../fp-settings/">
   <template>
-    <style>#remember{margin-bottom:10px;}:host{display:block;}.iconsettings{margin-bottom:5px;margin-right:10px;}.save{float:right;margin-right:10px;background-color:black;}</style>
+    <style>#remember{margin-bottom:10px;}:host{display:block;}.iconsettings{margin-bottom:5px;margin-right:10px;}.save{float:right;margin-right:10px;background-color:black;}.is-hidden{display:none;}</style>
     
     
     <fp-conversations-data id="dataprovider"></fp-conversations-data>
+
+    
+    <connector-phonegap id="phonegap"></connector-phonegap>    
 
     <paper-dialog id="dialog">                
         <h2><iron-icon class="iconsettings" icon="icons:settings"></iron-icon>Settings</h2>
         <div>                
             <paper-input id="name" class="setting" autofocus="" label="Enter your name" type="text" required="" error-message="Invalid name!" value="{{name}}"></paper-input>
-            <paper-checkbox id="remember" class="setting" checked="{{remember}}">Remember me</paper-checkbox>       
+            <paper-checkbox id="remember" class$="setting {{_computePhoneGapAvailability()}}" checked="{{remember}}">Remember me</paper-checkbox>       
         </div>                      
         <paper-fab class="save" mini="" icon="check" title="save changes" on-click="_onSave"></paper-fab>
     </paper-dialog>
@@ -899,6 +907,9 @@
   </dom-module>
 </div><dom-module id="fp-app">
     <template>
+            
+            <connector-phonegap id="phonegap"></connector-phonegap>
+    
           
         <paper-drawer-panel force-narrow="" disable-edge-swipe="">
               
@@ -908,7 +919,7 @@
                 <paper-toolbar id="drawerToolbar" class="{{enableToolbar(accessInfo)}}">
                         <paper-item title="Sign out" on-click="_onSignout" data-route="signout">
                                 <iron-icon icon="account-circle" class="signout"></iron-icon>
-                                <span>Sign out {{accessInfo.name}}</span>
+                                <span class$="{{_computePhoneGapAvailability()}}">Sign out</span><span> {{accessInfo.name}}</span>
                         </paper-item>
                 </paper-toolbar>
                 <paper-menu class="dropdown-content" selected="0">
