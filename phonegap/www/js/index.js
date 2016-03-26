@@ -32,59 +32,25 @@ var app = {
     bindEvents: function() {
         document.addEventListener('deviceready', this.onDeviceReady, false);
     },
-    
+
     /**
     * deviceready Event Handler
     **/
-    onDeviceReady: function() {        
+    onDeviceReady: function() {
         app.deviceready = true;
         if (app.componentready){
-            app.initPush();    
-        }
-    },
-    
-    /**
-    * This is called when the app is loaded.aka-Web components are ready
-    *
-    **/
-    signalReady: function (){      
-        app.componentready = true;
-        if (app.deviceready) {
             app.initPush();
         }
     },
 
     /**
-    * Prepare the device app to receive Push notifications from GCM service 
-    * @doc  https://github.com/phonegap/phonegap-plugin-push/blob/master/docs/API.md
+    * This is called when the app is loaded.aka-Web components are ready
+    *
     **/
-    initPush: function (){
-        //Initialize Push notification with options for android.
-        // android.senderID - Maps to the project number in the Google Developer Console.
-        // Want to create new Project? https://console.cloud.google.com
-        var push = PushNotification.init({ "android": {"senderID": "131586736374"}});
-        // var push = PushNotification.init({ "android": {"senderID": "131586736374"},
-        //             "ios": {"alert": "true", "badge": "true", "sound": "true"}, "windows": {} } );
-        
-        //Event listener when the device finishes registration with the GCM service
-        push.on('registration', function(data) {
-            // This registration key is a secret and unique to each device.
-            // Ask fp-app to persist it. 
-            // This will be used by the node app.js process to push notifications 
-            // to this device via GCM
-            var fpapp = document.getElementById('mainapp');
-            fpapp.registerdevicePushkey(data.registrationId);
-        });
-
-        // Event listener notification arrival
-        push.on('notification', function(data) {
-            //Displays an alert if the app is open
-            alert(data.title+" Message: " +data.message);          
-        });
-
-        // Event listener for notification failure
-        push.on('error', function(e) {
-            console.log(e.message);
-        });
+    signalReady: function (){
+        app.componentready = true;
+        if (app.deviceready) {
+            console.log('device ready');
+        }
     }
 };

@@ -18,6 +18,10 @@
         },
         "cordova-plugin-sim": {
             "PACKAGE_NAME": "com.phonegap.fonepush"
+        },
+        "phonegap-plugin-push": {
+            "SENDER_ID": "131586736374",
+            "PACKAGE_NAME": "com.phonegap.fonepush"
         }
     },
     "dependent_plugins": {}

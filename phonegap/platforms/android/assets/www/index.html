@@ -94,6 +94,7 @@
       //Spinner handler
       window.addEventListener('WebComponentsReady', function(e) {
         document.getElementById('unresolved_loader').style.display = 'none';
+        app.signalReady();
       });
     </script>
 
@@ -102,7 +103,7 @@
     <script type="text/javascript">
         if (!window.location.hostname) {
           //FP-Debug: Step: 1 Set your local ip
-          window.location.hostname = '192.168.1.10';
+            window.location.hostname = '192.168.1.10';
         }
 
         app.initialize();

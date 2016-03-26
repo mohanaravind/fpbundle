@@ -19,6 +19,8 @@
 
 
 var app = {
+    componentready: false,
+    deviceready: false,
     // Application Constructor
     initialize: function() {
         this.bindEvents();
@@ -30,15 +32,25 @@ var app = {
     bindEvents: function() {
         document.addEventListener('deviceready', this.onDeviceReady, false);
     },
-    // deviceready Event Handler
-    //
-    // The scope of 'this' is the event. In order to call the 'receivedEvent'
-    // function, we must explicitly call 'app.receivedEvent(...);'
+
+    /**
+    * deviceready Event Handler
+    **/
     onDeviceReady: function() {
-        app.receivedEvent('deviceready');
+        app.deviceready = true;
+        if (app.componentready){
+            app.initPush();
+        }
     },
-    // Update DOM on a Received Event
-    receivedEvent: function(id) {
-        console.log('Received Event: ' + id);
+
+    /**
+    * This is called when the app is loaded.aka-Web components are ready
+    *
+    **/
+    signalReady: function (){
+        app.componentready = true;
+        if (app.deviceready) {
+            console.log('device ready');
+        }
     }
 };
