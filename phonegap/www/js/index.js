@@ -25,12 +25,48 @@ var app = {
     initialize: function() {
         this.bindEvents();
     },
+    onWebComponentsReady: function () {
+      console.group('FP: DEBUG INSTRUCTIONS');
+      console.log('To start debugging, ensure the following: ');
+      console.log('(Valid only for the given session) Which means you need to ensure everytime you close and start the app');
+      console.info('1 > http-server running on port 8080 at fonepush/public/ui ');
+      console.info('2 > node app.js has been started');
+      console.info('3 > Run the below command on your console window');
+      console.log('sessionStorage.setItem("ip", "YOUR_IP")');
+      console.log('sessionStorage.setItem("debug", true)');
+      console.groupEnd();
+
+      //Get the default localhost ip
+      var IP = sessionStorage.getItem('ip') || '192.168.1.7';
+
+      if (!window.location.hostname) {
+        //FP-Debug: Step: 1 Set your local ip
+        window.location.hostname = IP;
+
+        console.log('FP: Serving from: ' + IP);
+      }
+
+      var path = 'https://rawgit.com/mohanaravind/fpbundle/master/build/fp-app.build.html';
+
+      if (sessionStorage.getItem('debug')) {
+        path = 'http://' + IP + ':8080/elements/fp-app/fp-app.html';
+      }
+
+      var link = document.createElement('link');
+      link.rel = 'import';
+      link.href = path;
+
+      document.body.appendChild(link);
+    },
     // Bind Event Listeners
     //
     // Bind any events that are required on startup. Common events are:
     // 'load', 'deviceready', 'offline', and 'online'.
     bindEvents: function() {
         document.addEventListener('deviceready', this.onDeviceReady, false);
+
+        //Default is to look for localhost and fallback on prod
+        document.addEventListener('WebComponentsReady', this.onWebComponentsReady);
     },
 
     /**
@@ -39,7 +75,7 @@ var app = {
     onDeviceReady: function() {
         app.deviceready = true;
         if (app.componentready){
-            app.initPush();
+            console.log('app ready');
         }
     },
 

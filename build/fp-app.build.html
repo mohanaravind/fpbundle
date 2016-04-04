@@ -961,31 +961,10 @@
           
         <paper-drawer-panel force-narrow="" disable-edge-swipe="">
               
-              <paper-scroll-header-panel drawer="" fixed="">
 
-                
-                <paper-toolbar id="drawerToolbar" class="{{enableToolbar(accessInfo)}}">
-                        <paper-item title="Sign out" on-click="_onSignout" data-route="signout">
-                                <iron-icon icon="account-circle" class="signout"></iron-icon>
-                                <span class$="{{_computePhoneGapAvailability()}}">Sign out</span><span> {{accessInfo.name}}</span>
-                        </paper-item>
-                </paper-toolbar>
-                <paper-menu class="dropdown-content" selected="0">
-                        <paper-item class="contacts" title="Contacts" data-route="contacts">
-                                <iron-icon icon="account-box"></iron-icon>
-                                <span class="menu-item">Contacts</span>
-                        </paper-item>
-                        
-
-                        <paper-item class="settings" title="Settings" on-click="_onOpenSettings" data-route="settings">
-                                <iron-icon icon="settings"></iron-icon>
-                                <span class="menu-item">Settings</span>
-                        </paper-item>
-                </paper-menu>
-              </paper-scroll-header-panel>
           <div main="">
                 <div class="toolbar">
-                        <paper-icon-button id="menu" icon="menu" class$="{{enableMenu(accessInfo, heading)}}" paper-drawer-toggle=""></paper-icon-button>
+
                         <paper-icon-button icon="arrow-back" class$="{{enableBack(heading)}}" data-route="home"></paper-icon-button>
                         <header class="flexchild-grow">{{heading}}</header>
                 </div>

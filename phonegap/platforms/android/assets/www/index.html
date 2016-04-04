@@ -100,22 +100,16 @@
 
     <script type="text/javascript" src="cordova.js"></script>
     <script type="text/javascript" src="js/index.js"></script>
+    <script src="https://rawgit.com/mohanaravind/fpbundle/master/lib/webcomponents-lite.min.js"></script>
     <script type="text/javascript">
-        if (!window.location.hostname) {
-          //FP-Debug: Step: 1 Set your local ip
-            window.location.hostname = '192.168.1.10';
-        }
-
         app.initialize();
     </script>
 
-    <script src="https://rawgit.com/mohanaravind/fpbundle/master/lib/webcomponents-lite.min.js"></script>
-
     <!-- FP-Debug: Step: 2 - Set your local ip and uncomment the below code -->
-    <!-- <link rel="import" href="http://192.168.1.10:8080/elements/fp-app/fp-app.html"> -->
+    <!-- <link rel="import" href="http://192.168.1.7:8080/elements/fp-app/fp-app.html"> -->
 
     <!-- FP-Debug: Step: 3 - Comment the below code -->
-    <link rel="import" href="https://rawgit.com/mohanaravind/fpbundle/master/build/fp-app.build.html">
+    <!-- <link rel="import" href="https://rawgit.com/mohanaravind/fpbundle/master/build/fp-app.build.html"> -->
 
     <!-- Use this when packaging the app along -->
     <!-- <link rel="import" href="build/fp-app.build.html"> -->
