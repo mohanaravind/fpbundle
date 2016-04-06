@@ -824,7 +824,7 @@
 <dom-module id="fp-newconversation" assetpath="../fp-newconversation/">
     <template>
         <style>:host{display:block;}span,input{@apply(--paper-font-body2);}.flex-vertical{@apply(--layout-vertical);@apply(--layout-center);}#container{display:none;}#container.is-visible{display:block;}.iconcontact{margin-bottom:5px;margin-right:10px;}.save{float:right;margin-right:10px;background-color:black;}.dropdown{padding:10px;}</style>
-        
+
 
 
 
@@ -832,24 +832,24 @@
 
         <div id="container" style="display:none;">
             <div class="flex-vertical">
-                <gold-phone-input id="num" autofocus="" auto-validate="" preventinvalidinput="" label="Enter Phone number" value="{{_num}}" error-message="Invalid Number"></gold-phone-input>            
-            </div>            
+                <gold-phone-input id="num" autofocus="" auto-validate="" preventinvalidinput="" label="Enter Phone number" value="{{_num}}" error-message="Invalid Number"></gold-phone-input>
+            </div>
         </div>
 
         
-        <connector-phonegap id="phonegap"></connector-phonegap>    
+        <connector-phonegap id="phonegap"></connector-phonegap>
 
-        <paper-dialog id="dialog">                
+        <paper-dialog id="dialog">
             <h2><iron-icon class="iconcontact" icon="account-circle"></iron-icon>Add a new conversation</h2>
-            <div>                              
+            <div>
                 <select class="dropdown" id="drpdown">
                     <template is="dom-repeat" items="{{_contactNums}}">
                         <option value="{{item.value}}">{{item.value}}</option>
                     </template>
-                </select> 
-            </div>                      
+                </select>
+            </div>
             <paper-fab class="save" mini="" icon="check" title="Continue" on-click="_onContinue"></paper-fab>
-        </paper-dialog>        
+        </paper-dialog>
 
         <paper-spinner-lite id="spinner"></paper-spinner-lite>
 

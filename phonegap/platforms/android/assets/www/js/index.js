@@ -32,12 +32,11 @@ var app = {
       console.info('1 > http-server running on port 8080 at fonepush/public/ui ');
       console.info('2 > node app.js has been started');
       console.info('3 > Run the below command on your console window');
-      console.log('sessionStorage.setItem("ip", "YOUR_IP")');
-      console.log('sessionStorage.setItem("debug", true)');
+      console.log('sessionStorage.setItem("debug", "YOUR_IP")');
       console.groupEnd();
 
       //Get the default localhost ip
-      var IP = sessionStorage.getItem('ip') || '192.168.1.7';
+      var IP = sessionStorage.getItem('debug');
 
       if (!window.location.hostname) {
         //FP-Debug: Step: 1 Set your local ip
@@ -48,7 +47,7 @@ var app = {
 
       var path = 'https://rawgit.com/mohanaravind/fpbundle/master/build/fp-app.build.html';
 
-      if (sessionStorage.getItem('debug')) {
+      if (IP) {
         path = 'http://' + IP + ':8080/elements/fp-app/fp-app.html';
       }
 

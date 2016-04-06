@@ -1,7 +1,7 @@
 <widget xmlns="http://www.w3.org/ns/widgets" xmlns:gap="http://phonegap.com/ns/1.0" xmlns:cdv="http://cordova.apache.org/ns/1.0" id="com.phonegap.fonepush" version="1.0.0">
-  <name>phonegap</name>
-  <description>Hello World sample application that responds to the deviceready event.</description>
-  <author href="http://phonegap.com" email="support@phonegap.com">PhoneGap Team</author>
+  <name>Fone Push</name>
+  <description>Fone Push - The messenger with feeling</description>
+  <author href="https://fonepush.com" email="support@fonepush.com">Fonepush Team</author>
   <content src="index.html"/>
     <config-file target="AndroidManifest.xml" parent="/*">
   </config-file>
@@ -74,7 +74,7 @@
   <plugin name="cordova-plugin-sim" version="1"/>
   <plugin name="phonegap-plugin-push" source="npm">
         <param name="SENDER_ID" value="131586736374" />
-  </plugin>  
+  </plugin>
   <allow-navigation href="*" />
   <allow-intent href="http://*/*"/>
   <allow-intent href="https://*/*"/>

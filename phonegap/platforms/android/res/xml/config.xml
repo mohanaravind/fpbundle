@@ -18,9 +18,9 @@
         <param name="android-package" value="cordova.plugins.Diagnostic" />
     </feature>
     <allow-intent href="market:*" />
-    <name>phonegap</name>
-    <description>Hello World sample application that responds to the deviceready event.</description>
-    <author email="support@phonegap.com" href="http://phonegap.com">PhoneGap Team</author>
+    <name>Fone Push</name>
+    <description>Fone Push - The messenger with feeling</description>
+    <author email="support@fonepush.com" href="https://fonepush.com">Fonepush Team</author>
     <content src="index.html" />
     <config-file parent="/*" target="AndroidManifest.xml">
     </config-file>
